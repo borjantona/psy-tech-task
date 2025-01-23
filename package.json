@@ -27,8 +27,11 @@
     "@capacitor/keyboard": "7.0.0",
     "@capacitor/status-bar": "7.0.0",
     "@ionic/angular": "^8.0.0",
+    "@tailwindcss/postcss": "^4.0.0",
     "ionicons": "^7.0.0",
+    "postcss": "^8.5.1",
     "rxjs": "~7.8.0",
+    "tailwindcss": "^4.0.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
