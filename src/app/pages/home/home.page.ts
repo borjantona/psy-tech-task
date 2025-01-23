@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { IonContent } from '@ionic/angular/standalone';
-import { HeaderComponent } from '../components/header/header.component';
+import { ApiFetcherService } from 'src/app/services/apiFetcher';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [HeaderComponent, IonContent],
+  imports: [IonContent],
 })
 export class HomePage {
-  constructor() {}
+  constructor(private apiService: ApiFetcherService) {
+    
+  }
 }
