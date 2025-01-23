@@ -51,12 +51,40 @@
   </div>
 </ion-header>-->
 
-<ion-header>
+<ion-header class="header">
   <ion-grid>
     <ion-row>
-      <ion-col
-        ><img class="img" src="./../../../assets/icon/favicon.png"
-      /></ion-col>
+      <ion-col>
+        <img
+          [routerLink]="['/']"
+          class="img"
+          src="./../../../assets/icon/favicon.png"
+        />
+      </ion-col>
+      <ion-col size="auto">
+        <div class="header-categories">
+          <ion-chip
+            [routerLink]="['/category/electronics']"
+            [outline]="url !== '/category/electronics'"
+            >Electronics</ion-chip
+          >
+          <ion-chip
+            [routerLink]="['/category/jewelery']"
+            [outline]="url !== '/category/jewelery'"
+            >Jewelery</ion-chip
+          >
+          <ion-chip
+            [routerLink]="['/category/men']"
+            [outline]="url !== '/category/men'"
+            >Men's clothing</ion-chip
+          >
+          <ion-chip
+            [routerLink]="['/category/women']"
+            [outline]="url !== '/category/women'"
+            >Women's clothing</ion-chip
+          >
+        </div>
+      </ion-col>
       <ion-col>
         <ion-icon
           (click)="handleOnClick($event)"
@@ -64,9 +92,8 @@
           name="menu-outline"
           size="large"
         ></ion-icon>
-
         <ion-icon
-          (click)="handleOnClick($event)"
+          [routerLink]="['/cart']"
           class="ion-float-end header-icon"
           name="cart-outline"
           size="large"

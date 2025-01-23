@@ -3,23 +3,27 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    loadComponent: () => import('./pages/home/home.page').then((m) => m.HomePage),
   },
   {
     path: 'shop',
-    loadComponent: () => import('./shop/shop.page').then((m) => m.ShopPage),
+    loadComponent: () => import('./pages/shop/shop.page').then((m) => m.ShopPage),
   },
   {
     path: 'product',
-    loadComponent: () => import('./product/product.page').then((m) => m.ProductPage),
+    loadComponent: () => import('./pages/product/product.page').then((m) => m.ProductPage),
   },
   {
     path: 'cart',
-    loadComponent: () => import('./cart/cart.page').then((m) => m.CartPage),
+    loadComponent: () => import('./pages/cart/cart.page').then((m) => m.CartPage),
   },
   {
     path: 'category',
-    loadComponent: () => import('./category/category.page').then((m) => m.CategoryPage),
+    redirectTo: 'home',
+  },
+  {
+    path: 'category/:cat',
+    loadComponent: () => import('./pages/category/category.page').then((m) => m.CategoryPage),
   },
   {
     path: '',

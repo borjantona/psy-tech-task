@@ -2,15 +2,23 @@
   width: 32px;
   padding: 0.25rem;
   margin: auto 0;
+  cursor: pointer;
 }
 
-.header-icon {
-  padding-right: 0.5rem;
-  cursor: pointer;
-  &:hover {
-    animation-name: getLarge;
-    animation-duration: 0.25s;
-    scale: 1.1;
+.header {
+	color: var(--ion-color-primary);
+  &-icon {
+    padding-right: 0.5rem;
+    cursor: pointer;
+    &:hover {
+      animation-name: getLarge;
+      animation-duration: 0.25s;
+      scale: 1.1;
+    }
+  }
+  &-categories {
+	display: flex; 
+	flex-direction: row;
   }
 }
 
@@ -21,14 +29,11 @@ ion-icon {
   }
 }
 
-
-
 @keyframes getLarge {
-	from {
-	  scale: 1;
-	}
-	to {
-	  scale: 1.1;
-	}
+  from {
+    scale: 1;
   }
-  
+  to {
+    scale: 1.1;
+  }
+}
