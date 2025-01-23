@@ -1,0 +1,34 @@
+.img {
+  width: 32px;
+  padding: 0.25rem;
+  margin: auto 0;
+}
+
+.header-icon {
+  padding-right: 0.5rem;
+  cursor: pointer;
+  &:hover {
+    animation-name: getLarge;
+    animation-duration: 0.25s;
+    scale: 1.1;
+  }
+}
+
+ion-icon {
+  color: var(--ion-color-primary);
+  &:hover {
+    color: var(--ion-color-secondary);
+  }
+}
+
+
+
+@keyframes getLarge {
+	from {
+	  scale: 1;
+	}
+	to {
+	  scale: 1.1;
+	}
+  }
+  
