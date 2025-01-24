@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true">
+<ion-content>
   <div class="container">
     <header>
       <p class="home-header-text">Bienvenido/a a la tienda Psonríe</p>
@@ -14,13 +14,12 @@
     </header>
     <main>
       @for(category of categories; track category) {
-      <div class="home-main-category">
-        <products-slider
-          [products]="products"
-          [category]="category"
-        ></products-slider>
-      </div>
-
+		<div class="home-main-category">
+			<products-slider
+				[products]="products"
+				[category]="category"
+			></products-slider>
+		</div>
       }
     </main>
   </div>

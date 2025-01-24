@@ -6,6 +6,7 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 import { NgClass } from '@angular/common';
 import { addIcons } from 'ionicons';
 import { chevronBackOutline, chevronForwardOutline } from 'ionicons/icons';
+import { Navigation, Pagination } from 'swiper/modules';
 
 @Component({
   selector: 'products-slider',
@@ -32,7 +33,7 @@ export class ProductsSliderComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.initSwiper();
+	this.initSwiper();
   }
 
   initSwiper() {
@@ -42,6 +43,7 @@ export class ProductsSliderComponent implements OnInit, AfterViewInit {
       observeParents: true,
       direction: 'horizontal',
       slidesPerView: 1,
+	  modules: [Navigation, Pagination],
       breakpoints: {
         1400: {
           slidesPerView: 5,
@@ -56,12 +58,14 @@ export class ProductsSliderComponent implements OnInit, AfterViewInit {
           slidesPerView: 2,
         },
       },
-
-      // Navigation arrows
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+	  /*pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },*/
     });
   }
 }
