@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { IonHeader,IonChip  } from '@ionic/angular/standalone';
 import { IonCol, IonGrid, IonRow } from '@ionic/angular/standalone';
 import { IonIcon } from '@ionic/angular/standalone';

@@ -6,7 +6,8 @@
 }
 
 .header {
-	color: var(--ion-color-primary);
+  color: var(--ion-color-primary);
+  height: 60px;
   &-icon {
     padding-right: 0.5rem;
     cursor: pointer;
@@ -17,15 +18,15 @@
     }
   }
   &-categories {
-	display: flex; 
-	flex-direction: row;
+    display: flex;
+    flex-direction: row;
   }
 }
 
 ion-icon {
-  color: var(--ion-color-primary);
+  color: var(--ion-color-primary-tint);
   &:hover {
-    color: var(--ion-color-secondary);
+    color: var(--ion-color-primary);
   }
 }
 
