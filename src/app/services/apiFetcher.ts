@@ -24,7 +24,10 @@ export class ApiFetcherService {
     return await categories.json();
   }
 
-  async getCategory(category: string): Promise<Category> {
+  async getCategory(category: string): Promise<Product[]> {
+	if (category === 'men' || category === 'women') {
+		category = category + "'s clothing";
+	}
     const categories = await fetch(APIS.URL_BASE + APIS.CATEGORY + category);
     return await categories.json();
   }

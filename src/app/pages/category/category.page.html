@@ -1,5 +1,12 @@
-<ion-content [fullscreen]="true">
-  <div class="container">
-	Category
-  </div>
+<ion-content>
+  @if(products.length > 0) {
+  <main class="container">
+    <h1 class="category-title">{{category}}</h1>
+    <div class="category-items">
+      @for(product of products; track product.id) {
+      <product-card [product]="product"></product-card>
+      }
+    </div>
+  </main>
+  }
 </ion-content>

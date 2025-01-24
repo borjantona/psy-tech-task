@@ -1,0 +1,17 @@
+.container {
+  padding: 32px;
+}
+.category {
+  &-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0;
+    text-transform: capitalize;
+  }
+  &-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+	gap: 25px 25px; 
+  }
+}
