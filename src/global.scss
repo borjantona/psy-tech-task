@@ -25,10 +25,11 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 //@import "tailwindcss";
+@import "swiper/css";
 
 /**
  * Ionic Dark Mode
- * -----------------------------------------------------
+ * -----------------------------------------------------p
  * For more info, please see:
  * https://ionicframework.com/docs/theming/dark-mode
  */
@@ -38,7 +39,7 @@
 // @import "@ionic/angular/css/palettes/dark.system.css";
 
 ion-content {
-  --offset-bottom: auto!important;
+  --offset-bottom: auto !important;
   --overflow: hidden;
   overflow: auto;
   background-color: var(--ion-color-primary-contrast);

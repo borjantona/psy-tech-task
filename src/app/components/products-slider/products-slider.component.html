@@ -1,0 +1,29 @@
+<div class="products-slider-header">
+	<h1 class="products-slider-category">{{ category }}</h1>
+	<div class="products-slider-header-nav">
+    <ion-button>
+      <ion-icon
+        slot="icon-only"
+        ios="chevron-back-outline"
+		color="secondary"
+      ></ion-icon>
+    </ion-button>
+    <ion-button>
+      <ion-icon
+        slot="icon-only"
+        ios="chevron-back-outline"
+      ></ion-icon>
+    </ion-button>
+  </div>
+</div>
+<div class="swiper-container swiper">
+  <div aria-roledescription="carousel" class="swiper-wrapper">
+    @for (product of innerProducts; track product.id) {
+    <div class="swiper-slide">
+      <product-card [product]="product"></product-card>
+    </div>
+    }
+  </div>
+  <div class="swiper-button-prev invisible"></div>
+  <div class="swiper-button-next invisible"></div>
+</div>
