@@ -6,7 +6,4 @@
 
 ```
 npm i
-npm i tailwindcss @tailwindcss/postcss postcss --force
 ```
-
-The --force tag is mandatory as stated in the tailwind configuration
