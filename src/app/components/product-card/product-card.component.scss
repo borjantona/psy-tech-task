@@ -1,0 +1,64 @@
+:root {
+  --shadow-color: rgba(0, 0, 0, 0.8);
+}
+
+.product-card {
+  width: 440px;
+  min-height: 500px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px var(--shadow-color);
+  }
+  &-image {
+    width: 440px;
+    height: 440px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+  &-text {
+    height: 48px;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    &-name {
+      display: flex;
+      flex-direction: column;
+      &-title {
+        font-size: small;
+        font-weight: bold;
+        color: var(--ion-color-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
+      }
+      &-category {
+        font-size: x-small;
+        font-style: italic;
+        color: var(--ion-color-primary-tint);
+        text-transform: capitalize;
+      }
+    }
+    &-price {
+      font-size: small;
+      font-weight: bold;
+      color: var(--ion-color-primary);
+    }
+  }
+}
