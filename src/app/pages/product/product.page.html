@@ -1,11 +1,26 @@
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Psonrie</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-	Product
-  </div>
+<ion-content>
+  @if(product) {
+  <main class="container">
+    <div class="product-image">
+      <img [src]="product.image" alt="product.name" />
+    </div>
+    <div class="product-info">
+      <h2 class="product-info-name">{{product.title}}</h2>
+      <p class="product-info-category">{{product.category}}</p>
+      <p class="product-info-price">{{product.price}}€</p>
+      <p class="product-info-price-note">incl. of taxes</p>
+      <p class="product-info-price-note">
+        (Also includes all applicable duties)
+      </p>
+      <ion-button
+        class="product-info-add-to-cart"
+        color="primary"
+        expand="block"
+        (click)="addToCart()"
+        >Add to cart</ion-button
+      >
+      <p class="product-info-description">{{product.description}}</p>
+    </div>
+  </main>
+  }
 </ion-content>
