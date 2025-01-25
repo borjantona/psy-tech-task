@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { Cart } from 'src/app/interfaces/cart';
-import { addProduct, cleanCart, loadCart, removeProduct } from './cart.actions';
+import { addProduct, cleanCart, loadCart, removeAllProducts, removeProduct } from './cart.actions';
 import _ from 'lodash';
 
 const initialState: Cart = {
@@ -25,7 +25,8 @@ export const cartReducer = createReducer(
   on(removeProduct, (state, action) => {
 	let _state = _.cloneDeep(state)
 	const productIndex = _state.products.findIndex((product) => product.productId === action.productId);
-	if (productIndex !== -1) {
+	
+	if (productIndex === -1) {
 		return state;
 	} else {
 		if (_state.products[productIndex].quantity > 1) {
@@ -33,6 +34,17 @@ export const cartReducer = createReducer(
 		} else {
 			_state.products.splice(productIndex, 1);
 		}
+	}
+    return _state;
+  }),
+  on(removeAllProducts, (state, action) => {
+	let _state = _.cloneDeep(state)
+	const productIndex = _state.products.findIndex((product) => product.productId === action.productId);
+	
+	if (productIndex === -1) {
+		return state;
+	} else {
+		_state.products.splice(productIndex, 1);
 	}
     return _state;
   }),

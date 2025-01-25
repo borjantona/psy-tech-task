@@ -5,6 +5,7 @@ import {
   createCart,
   initCart,
   loadCart,
+  removeAllProducts,
   removeProduct,
 } from './cart.actions';
 import { of, switchMap, tap, withLatestFrom } from 'rxjs';
@@ -62,6 +63,26 @@ export class CartEffects {
             if (!product) {
               product = { productId: action.productId, quantity: 0 };
             }
+            return this.apiFetcherService.updateProductInCart(cart.id, {
+              userId: cart.userId,
+              products: [product],
+              date: cart.date,
+            });
+          } else {
+            return of(null);
+          }
+        })
+      ),
+    { dispatch: false }
+  );
+  removeAllProductCart = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(removeAllProducts),
+        withLatestFrom(this.store.select(selectCart)),
+        switchMap(([action, cart]) => {
+          if (cart.id) {
+            let product = { productId: action.productId, quantity: 0 };
             return this.apiFetcherService.updateProductInCart(cart.id, {
               userId: cart.userId,
               products: [product],

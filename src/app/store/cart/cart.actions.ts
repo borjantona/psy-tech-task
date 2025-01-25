@@ -8,6 +8,7 @@ export const CART_ACTIONS = {
   CREATE_CART: '[CART] CREATE CART',
   ADD_PRODUCT: '[CART] ADD PRODUCT',
   REMOVE_PRODUCT: '[CART] REMOVE PRODUCT',
+  REMOVE_ALL_PRODUCT: '[CART] REMOVE ALL PRODUCTS',
   CLEAN_CART: '[CART] CLEAN CART',
 };
 
@@ -31,4 +32,8 @@ export const removeProduct = createAction(
   CART_ACTIONS.REMOVE_PRODUCT,
   props<{ productId: number }>()
 );
+export const removeAllProducts = createAction(
+	CART_ACTIONS.REMOVE_ALL_PRODUCT,
+	props<{ productId: number }>()
+  );
 export const cleanCart = createAction(CART_ACTIONS.CLEAN_CART);
