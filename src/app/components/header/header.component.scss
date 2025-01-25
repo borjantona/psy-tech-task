@@ -24,16 +24,22 @@
       flex-direction: row;
       justify-content: center;
       gap: 12px;
-
+	  height: 36px;
+	
       &-category {
         cursor: pointer;
+		margin-top: auto;
         color: var(--ion-color-primary-tint);
+		height: 24px;
         &:hover {
           color: var(--ion-color-primary);
+		  font-weight: bold;
+		  border-bottom: 1px solid;
         }
         &.selected {
 			color: var(--ion-color-primary);
 			font-weight: bold;
+			border-bottom: 1px solid;
         }
       }
     }
