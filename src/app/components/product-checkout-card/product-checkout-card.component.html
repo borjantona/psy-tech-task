@@ -1,0 +1,35 @@
+<div class="product-checkout-card">
+  @if(product) {
+  <div class="product-checkout-card-image">
+    <img [src]="product.image" />
+  </div>
+  <div class="product-checkout-card-content">
+    <div class="product-checkout-card-content-title">
+      <span class="product-checkout-card-content-title-name">
+        {{ product.title }}
+      </span>
+      <span class="product-checkout-card-content-title-price"> {{product.price}}€ </span>
+    </div>
+    <div class="product-checkout-card-content-subtitle">
+      {{ product.category }}
+    </div>
+    <div class="product-checkout-card-content-quantity">
+      Quantity: {{ cartProduct.quantity }}
+    </div>
+    <div class="product-checkout-card-content-icons">
+      <ion-icon
+        (click)="likeProduct()"
+        class="product-checkout-card-content-icons-icon"
+        name="heart-outline"
+        size="large"
+      ></ion-icon>
+      <ion-icon
+        (click)="removeProduct()"
+        class="product-checkout-card-content-icons-icon"
+        name="trash-outline"
+        size="large"
+      ></ion-icon>
+    </div>
+  </div>
+  }
+</div>

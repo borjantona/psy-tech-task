@@ -13,7 +13,7 @@ import { getCategories, getProducts } from './store/products/products.actions';
 })
 export class AppComponent {
   constructor(private store: Store<IAppState>) {
-	let userId = (localStorage.getItem('userId')) ? +localStorage.getItem('userId')! : 2;
+	let userId = 1;
 	localStorage.setItem('userId', userId.toString());
 	this.store.dispatch(initCart({ userId }));
 	this.store.dispatch(getProducts());
