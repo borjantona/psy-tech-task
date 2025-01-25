@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonContent } from '@ionic/angular/standalone';
-import { ApiFetcherService } from 'src/app/services/apiFetcher';
 import { Category, Product } from 'src/app/interfaces/product';
 import { ProductsSliderComponent } from 'src/app/components/products-slider/products-slider.component';
 import { Observable } from 'rxjs';
@@ -20,7 +19,6 @@ export class HomePage {
   categories: Category[] = [];
 
   constructor(
-    private apiService: ApiFetcherService,
     private store: Store<IAppState>
   ) {
     this.products$ = store.select(selectProductsStore);

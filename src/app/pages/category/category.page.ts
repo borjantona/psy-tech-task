@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonContent } from '@ionic/angular/standalone';
 import { ActivatedRoute } from '@angular/router';
-import { ApiFetcherService } from 'src/app/services/apiFetcher';
 import { Product } from 'src/app/interfaces/product';
 import { ProductCardComponent } from 'src/app/components/product-card/product-card.component';
 import { IAppState, ProductStore } from 'src/app/store/app.state';
@@ -21,7 +20,6 @@ export class CategoryPage {
   products$: Observable<Product[]>;
 
   constructor(
-    private apiFetcherService: ApiFetcherService,
     private route: ActivatedRoute,
 	private store: Store<IAppState>
   ) {

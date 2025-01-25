@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IonContent, IonButton } from '@ionic/angular/standalone';
-import { Category, Product } from 'src/app/interfaces/product';
-import { ApiFetcherService } from 'src/app/services/apiFetcher';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Product } from 'src/app/interfaces/product';
+import { IAppState } from 'src/app/store/app.state';
+import { addProduct } from 'src/app/store/cart/cart.actions';
+import { selectProducts } from 'src/app/store/products/products.selectors';
 
 @Component({
   selector: 'app-product',
@@ -13,25 +17,18 @@ import { ApiFetcherService } from 'src/app/services/apiFetcher';
 export class ProductPage {
   productId: number;
   product: Product;
-  constructor(
-    private apiFetcherService: ApiFetcherService,
-    private route: ActivatedRoute
-  ) {}
+  products: Product[] = [];
+  products$: Observable<Product[]>;
 
-  ngOnInit() {
-    this.productId = this.route.snapshot.params['id'];
-    this.loadProduct();
+  constructor(private route: ActivatedRoute, private store: Store<IAppState>) {
+    this.productId = +this.route.snapshot.params['id'];
+    this.products$ = store.select(selectProducts);
+    this.products$.subscribe((products) => {
+      this.product = products.find((prod) => prod.id === this.productId)!;
+    });
   }
 
   addToCart() {
-    console.log('Product added to cart');
-  }
-
-  loadProduct() {
-    this.apiFetcherService
-      .getProduct(this.productId)
-      .then((product: Product) => {
-        this.product = product;
-      });
+	this.store.dispatch(addProduct({ product: this.product }));
   }
 }
