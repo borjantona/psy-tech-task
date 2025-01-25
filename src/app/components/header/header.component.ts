@@ -1,18 +1,18 @@
 import { AsyncPipe, TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { IonHeader, IonChip, IonBadge } from '@ionic/angular/standalone';
-import { IonCol, IonGrid, IonRow } from '@ionic/angular/standalone';
+import { IonHeader, IonBadge } from '@ionic/angular/standalone';
 import { IonIcon } from '@ionic/angular/standalone';
 import { Store } from '@ngrx/store';
 import { addIcons } from 'ionicons';
 import { cartOutline, menuOutline } from 'ionicons/icons';
 import { filter, map, Observable } from 'rxjs';
-import { Cart } from 'src/app/interfaces/cart';
+import { NgClass } from '@angular/common';
 import { Category } from 'src/app/interfaces/product';
-import { IAppState, ProductStore } from 'src/app/store/app.state';
+import { IAppState } from 'src/app/store/app.state';
 import { selectCartTotal } from 'src/app/store/cart/cart.selectors';
-import { selectCategories, selectProducts } from 'src/app/store/products/products.selectors';
+import { selectCategories } from 'src/app/store/products/products.selectors';
+import { DecodeUriPipe } from 'src/app/pipes/decode-uri.pipe';
 
 @Component({
   selector: 'app-header',
@@ -21,14 +21,12 @@ import { selectCategories, selectProducts } from 'src/app/store/products/product
   imports: [
     IonHeader,
     IonIcon,
-    IonCol,
-    IonGrid,
-    IonRow,
+    NgClass,
     RouterModule,
-    IonChip,
     AsyncPipe,
     IonBadge,
-	TitleCasePipe
+	TitleCasePipe,
+	DecodeUriPipe
   ],
 })
 export class HeaderComponent implements OnInit {

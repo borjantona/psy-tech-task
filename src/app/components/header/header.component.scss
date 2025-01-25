@@ -8,34 +8,63 @@
 .header {
   color: var(--ion-color-primary);
   background-color: var(--ion-color-primary-contrast);
-  height: 60px;
-  &-icon {
-    padding-right: 0.5rem;
-    cursor: pointer;
-    &:hover {
-      animation-name: getLarge;
-      animation-duration: 0.25s;
-      scale: 1.1;
-    }
-    &-cart {
-      &-badge {
-        position: absolute;
-		top: 0;
-		right: 3.4rem;
-		opacity: 0.9;
-		&-text {
-			font-size: 12px;
-		}
+  height: var(--header-height);
+  display: flex;
+  flex-direction: row;
+  padding: 0 8px;
+  &-logo {
+    flex: 1;
+    margin: auto;
+  }
+  &-nav {
+    flex: 9;
+    margin: auto;
+    &-categories {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 12px;
 
-		& ~ ion-icon {
-			margin-right: 1.2rem;
-		}
+      &-category {
+        cursor: pointer;
+        color: var(--ion-color-primary-tint);
+        &:hover {
+          color: var(--ion-color-primary);
+        }
+        &.selected {
+			color: var(--ion-color-primary);
+			font-weight: bold;
+        }
       }
     }
   }
-  &-categories {
-    display: flex;
-    flex-direction: row;
+  &-icons {
+    flex: 2;
+    margin: auto;
+    &-icon {
+      padding-right: 0.5rem;
+      cursor: pointer;
+      &:hover {
+        animation-name: getLarge;
+        animation-duration: 0.25s;
+        scale: 1.1;
+      }
+      &-cart {
+        &-badge {
+          position: absolute;
+          top: 15px;
+          right: 3.4rem;
+          opacity: 0.9;
+          &-text {
+            font-size: 12px;
+          }
+
+          & ~ ion-icon {
+            margin-right: 1.2rem;
+          }
+        }
+      }
+    }
   }
 }
 

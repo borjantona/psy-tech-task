@@ -1,44 +1,40 @@
 <ion-header class="header">
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <img
-          [routerLink]="['/']"
-          class="img"
-          src="./../../../assets/icon/favicon.png"
-        />
-      </ion-col>
-      <ion-col size="auto">
-        <div class="header-categories">
-          @for (category of categories; track category) {
-          <ion-chip
-            [routerLink]="['/category/'+category]"
-            [outline]="url !== '/category/'+category"
-            >{{ category | titlecase }}</ion-chip
-          >
-          }
-        </div>
-      </ion-col>
-      <ion-col>
-        <ion-icon
-          (click)="handleOnClick($event)"
-          class="ion-float-end header-icon"
-          name="menu-outline"
-          size="large"
-        ></ion-icon>
-        <ion-badge class="header-icon-cart-badge" color="primary"
-          ><span class="header-icon-cart-badge-text">{{
-            cart$ | async
-          }}</span></ion-badge
-        >
-        <ion-icon
-          [routerLink]="['/cart']"
-          class="ion-float-end header-icon"
-          name="cart-outline"
-          size="large"
-        >
-        </ion-icon>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <div class="header-logo">
+    <img
+      [routerLink]="['/']"
+      class="img"
+      src="./../../../assets/icon/favicon.png"
+    />
+  </div>
+  <div class="header-nav">
+    <div class="header-nav-categories">
+      @for (category of categories; track category) {
+      <span
+        class="header-nav-categories-category"
+        [ngClass]="((url | decodeUri) === '/category/' + category) ? 'selected' : ''"
+        [routerLink]="['/category/' + category]"
+        >{{ category | titlecase }}</span
+      >
+      }
+    </div>
+  </div>
+  <div class="header-icons">
+    <ion-icon
+      (click)="handleOnClick($event)"
+      class="ion-float-end header-icons-icon"
+      name="menu-outline"
+      size="large"
+    ></ion-icon>
+    <ion-badge class="header-icons-icon-cart-badge" color="primary"
+      ><span class="header-icons-icon-cart-badge-text">{{
+        cart$ | async
+      }}</span></ion-badge
+    >
+    <ion-icon
+      [routerLink]="['/cart']"
+      class="ion-float-end header-icons-icon"
+      name="cart-outline"
+      size="large"
+    ></ion-icon>
+  </div>
 </ion-header>

@@ -38,6 +38,11 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 // @import "@ionic/angular/css/palettes/dark.system.css";
 
+:root {
+	--header-height: 80px;
+}
+
+
 ion-content {
   --offset-bottom: auto !important;
   --overflow: hidden;
@@ -52,7 +57,7 @@ ion-content {
   position: relative;
   left: 0;
   right: 0;
-  margin-top: 60px;
+  margin-top: var(--header-height);
   padding: 1rem;
   overflow: hidden;
 }
