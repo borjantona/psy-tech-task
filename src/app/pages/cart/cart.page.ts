@@ -1,5 +1,6 @@
 import { DecimalPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { IonContent, IonButton } from '@ionic/angular/standalone';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -14,7 +15,7 @@ import { selectProducts } from 'src/app/store/products/products.selectors';
   selector: 'app-cart',
   templateUrl: 'cart.page.html',
   styleUrls: ['cart.page.scss'],
-  imports: [IonContent, IonButton, ProductCheckoutCardComponent, DecimalPipe],
+  imports: [IonContent, IonButton, ProductCheckoutCardComponent, DecimalPipe, RouterModule],
 })
 export class CartPage implements OnInit {
   cart$: Observable<Cart>;
@@ -44,6 +45,5 @@ export class CartPage implements OnInit {
       this.products = products;
     });
   }
-
-  proceedToCheckout() {}
+  
 }
