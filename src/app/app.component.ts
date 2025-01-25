@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { Store } from '@ngrx/store';
 import { IAppState } from './store/app.state';
 import { initCart } from './store/cart/cart.actions';
+import { getCategories, getProducts } from './store/products/products.actions';
 
 @Component({
   selector: 'app-root',
@@ -15,5 +16,7 @@ export class AppComponent {
 	let userId = (localStorage.getItem('userId')) ? +localStorage.getItem('userId')! : 2;
 	localStorage.setItem('userId', userId.toString());
 	this.store.dispatch(initCart({ userId }));
+	this.store.dispatch(getProducts());
+	this.store.dispatch(getCategories());
   }
 }
