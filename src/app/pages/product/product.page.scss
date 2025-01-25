@@ -5,7 +5,7 @@
   align-items: flex-start;
   gap: 100px;
   max-width: 1000px;
-  margin: 60px auto;
+  margin: 100px auto;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -27,7 +27,7 @@
     &-name {
       font-size: 24px;
       font-weight: bold;
-      margin-bottom: 0;
+      margin: 0 auto;
     }
     &-category {
       font-size: 12px;
@@ -48,6 +48,7 @@
     &-add-to-cart {
       margin-top: 16px;
       --border-radius: 32px;
+	  max-width: 350px;
     }
 
     &-description {

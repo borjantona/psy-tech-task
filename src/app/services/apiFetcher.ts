@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Category, Product } from '../interfaces/product';
-import { Cart } from '../interfaces/cart';
+import { Cart, CartProduct } from '../interfaces/cart';
 
 @Injectable({
   providedIn: 'root',
@@ -37,15 +37,15 @@ export class ApiFetcherService {
     return await categories.json();
   }
 
-  async getUserCart(id: number) {
+  async getUserCarts(id: number): Promise<Cart[]> {
     const categories = await fetch(APIS.URL_BASE + APIS.USER_CART + id);
     return await categories.json();
   }
 
-  async addProductToCart(id: number, product: Product): Promise<Response> {
-    const response = await fetch(APIS.URL_BASE + APIS.ADD_PRODUCT + id, {
+  async addNewCart(cart: Cart): Promise<Response> {
+    const response = await fetch(APIS.URL_BASE + APIS.ADD_CART, {
       method: 'POST',
-      body: JSON.stringify(product),
+      body: JSON.stringify(cart),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -53,10 +53,21 @@ export class ApiFetcherService {
     return await response.json();
   }
 
-  async updateProductInCart(id: number, product: Product): Promise<Response> {
+  async createCart(cart: Cart): Promise<Cart> {
+    const response = await fetch(APIS.URL_BASE + APIS.ADD_CART, {
+      method: 'POST',
+      body: JSON.stringify(cart),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return await response.json();
+  }
+
+  async updateProductInCart(id: number, cartSlice: {userId: number, date: string, products: CartProduct[]}): Promise<Response> {
     const response = await fetch(APIS.URL_BASE + APIS.UPDATE_PRODUCT + id, {
       method: 'PUT',
-      body: JSON.stringify(product),
+      body: JSON.stringify(cartSlice),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -80,7 +91,7 @@ export const enum APIS {
   PRODUCT = 'products/',
   CART = 'carts/',
   USER_CART = 'carts/user/',
-  ADD_PRODUCT = 'carts/',
+  ADD_CART = 'carts',
   UPDATE_PRODUCT = 'carts/',
   DELETE_CART = 'carts/',
 }

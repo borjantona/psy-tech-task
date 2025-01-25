@@ -7,3 +7,8 @@
 ```
 npm i
 ```
+
+External libraries used:
+- NgRx
+- Lodash
+- Swiper

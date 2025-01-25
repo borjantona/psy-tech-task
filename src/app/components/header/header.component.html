@@ -39,12 +39,16 @@
           name="menu-outline"
           size="large"
         ></ion-icon>
+        <ion-badge class="header-icon-cart-badge" color="primary"
+          ><span class="header-icon-cart-badge-text">{{ cart$ | async }}</span></ion-badge
+        >
         <ion-icon
           [routerLink]="['/cart']"
           class="ion-float-end header-icon"
           name="cart-outline"
           size="large"
-        ></ion-icon>
+        >
+        </ion-icon>
       </ion-col>
     </ion-row>
   </ion-grid>

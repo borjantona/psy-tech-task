@@ -1,9 +1,9 @@
-<div class="product-card" (click)="goToProductDetails()">
-	<div class="product-card-image">
+<div class="product-card">
+	<div class="product-card-image" (click)="goToProductDetails()">
 		<img [alt]="'Image of ' + product.title" [src]="product.image" />
 	</div>
 	<div class="product-card-text">
-		<div class="product-card-text-name">
+		<div class="product-card-text-name" (click)="addProductToCart()">
 			<p class="product-card-text-name-title">
 				{{product.title}}
 			</p>

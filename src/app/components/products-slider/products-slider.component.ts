@@ -1,9 +1,7 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import Swiper from 'swiper';
-import { IonButton, IonIcon } from '@ionic/angular/standalone';
 import { Category, Product } from 'src/app/interfaces/product';
 import { ProductCardComponent } from '../product-card/product-card.component';
-import { NgClass } from '@angular/common';
 import { addIcons } from 'ionicons';
 import { chevronBackOutline, chevronForwardOutline } from 'ionicons/icons';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -12,7 +10,7 @@ import { Navigation, Pagination } from 'swiper/modules';
   selector: 'products-slider',
   templateUrl: 'products-slider.component.html',
   styleUrls: ['products-slider.component.scss'],
-  imports: [ProductCardComponent, NgClass, IonButton, IonIcon],
+  imports: [ProductCardComponent],
 })
 export class ProductsSliderComponent implements OnInit, AfterViewInit {
   @Input() products: Product[] = [];

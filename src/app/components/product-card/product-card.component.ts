@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 import { Product } from 'src/app/interfaces/product';
+import { addProduct } from 'src/app/store/cart/cart.actions';
 
 @Component({
   selector: 'product-card',
@@ -13,7 +15,7 @@ import { Product } from 'src/app/interfaces/product';
 export class ProductCardComponent implements OnInit {
   @Input() product: Product;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private store: Store) {}
 
   ngOnInit() {
 	//console.log(this.product)
@@ -21,5 +23,9 @@ export class ProductCardComponent implements OnInit {
 
   goToProductDetails() {
 	this.router.navigate(['/product/'+this.product.id], {});
+  }
+
+  addProductToCart() {
+	this.store.dispatch(addProduct({ product: this.product }));
   }
 }
