@@ -1,0 +1,26 @@
+<div class="product-summary-checkout">
+  @if(product) {
+  <div class="product-summary-checkout-image">
+    <img [src]="product.image" />
+  </div>
+  <div class="product-summary-checkout-content">
+    <div class="product-summary-checkout-content-title">
+      <span class="product-summary-checkout-content-title-name">
+        {{ product.title }}
+      </span>
+    </div>
+    <div class="product-summary-checkout-content-subtitle">
+      {{ product.category }}
+    </div>
+    <div class="product-summary-checkout-content-quantity">
+      Quantity: {{ cartProduct.quantity }} for
+      <span class="product-summary-checkout-content-title-price">
+        {{ product.price }}€
+      </span>
+    </div>
+    <div class="product-summary-checkout-content-price">
+      {{ product.price * cartProduct.quantity }}€
+    </div>
+  </div>
+  }
+</div>
