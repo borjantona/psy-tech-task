@@ -1,4 +1,4 @@
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { IonHeader, IonChip, IonBadge } from '@ionic/angular/standalone';
@@ -9,19 +9,34 @@ import { addIcons } from 'ionicons';
 import { cartOutline, menuOutline } from 'ionicons/icons';
 import { filter, map, Observable } from 'rxjs';
 import { Cart } from 'src/app/interfaces/cart';
-import { IAppState } from 'src/app/store/app.state';
+import { Category } from 'src/app/interfaces/product';
+import { IAppState, ProductStore } from 'src/app/store/app.state';
 import { selectCartTotal } from 'src/app/store/cart/cart.selectors';
+import { selectCategories, selectProducts } from 'src/app/store/products/products.selectors';
 
 @Component({
   selector: 'app-header',
   templateUrl: 'header.component.html',
   styleUrls: ['header.component.scss'],
-  imports: [IonHeader, IonIcon, IonCol, IonGrid, IonRow, RouterModule, IonChip, AsyncPipe, IonBadge],
+  imports: [
+    IonHeader,
+    IonIcon,
+    IonCol,
+    IonGrid,
+    IonRow,
+    RouterModule,
+    IonChip,
+    AsyncPipe,
+    IonBadge,
+	TitleCasePipe
+  ],
 })
 export class HeaderComponent implements OnInit {
   url$: Observable<string> = new Observable<string>();
   url: string = '';
   cart$: Observable<number>;
+  categories$: Observable<Category[]>;
+  categories: Category[] = [];
 
   constructor(private router: Router, private store: Store<IAppState>) {
     addIcons({ cartOutline, menuOutline });
@@ -31,7 +46,12 @@ export class HeaderComponent implements OnInit {
         return event.url;
       })
     );
-	this.cart$ = store.select(selectCartTotal);
+    this.cart$ = store.select(selectCartTotal);
+
+    this.categories$ = store.select(selectCategories);
+    this.categories$.subscribe((categories) => {
+      this.categories = categories;
+    });
   }
 
   ngOnInit() {

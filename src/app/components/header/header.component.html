@@ -10,26 +10,13 @@
       </ion-col>
       <ion-col size="auto">
         <div class="header-categories">
+          @for (category of categories; track category) {
           <ion-chip
-            [routerLink]="['/category/electronics']"
-            [outline]="url !== '/category/electronics'"
-            >Electronics</ion-chip
+            [routerLink]="['/category/'+category]"
+            [outline]="url !== '/category/'+category"
+            >{{ category | titlecase }}</ion-chip
           >
-          <ion-chip
-            [routerLink]="['/category/jewelery']"
-            [outline]="url !== '/category/jewelery'"
-            >Jewelery</ion-chip
-          >
-          <ion-chip
-            [routerLink]="['/category/men']"
-            [outline]="url !== '/category/men'"
-            >Men's clothing</ion-chip
-          >
-          <ion-chip
-            [routerLink]="['/category/women']"
-            [outline]="url !== '/category/women'"
-            >Women's clothing</ion-chip
-          >
+          }
         </div>
       </ion-col>
       <ion-col>
@@ -40,7 +27,9 @@
           size="large"
         ></ion-icon>
         <ion-badge class="header-icon-cart-badge" color="primary"
-          ><span class="header-icon-cart-badge-text">{{ cart$ | async }}</span></ion-badge
+          ><span class="header-icon-cart-badge-text">{{
+            cart$ | async
+          }}</span></ion-badge
         >
         <ion-icon
           [routerLink]="['/cart']"

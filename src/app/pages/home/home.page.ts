@@ -6,7 +6,7 @@ import { ProductsSliderComponent } from 'src/app/components/products-slider/prod
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { IAppState, ProductStore } from 'src/app/store/app.state';
-import { selectProducts } from 'src/app/store/products/products.selectors';
+import { selectProductsStore } from 'src/app/store/products/products.selectors';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +23,7 @@ export class HomePage {
     private apiService: ApiFetcherService,
     private store: Store<IAppState>
   ) {
-    this.products$ = store.select(selectProducts);
+    this.products$ = store.select(selectProductsStore);
     this.products$.subscribe((productStore) => {
       this.products = productStore.products;
 	  this.categories = productStore.categories;
