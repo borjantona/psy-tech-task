@@ -24,6 +24,7 @@
 		flex-direction: column;
 		gap: 24px;
 		width: 100%;
+		margin-bottom: 24px;
 
 		&-row {
 			display: flex;
@@ -78,6 +79,9 @@
 	  flex-direction: column;
 	  gap: 20px;
 	}
+	.shop-content {
+		width: 100%;
+	  }
 	.shop-summary {
 	  flex: 2;
 	}

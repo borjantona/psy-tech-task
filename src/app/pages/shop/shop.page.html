@@ -2,7 +2,7 @@
   <div class="container">
     <div class="shop-content">
       @if(cart && cart.products && cart.products.length > 0) {
-      <div class="shop-content-title">Delivery options</div>
+      <div class="shop-content-title">Delivery information</div>
       <form class="shop-content-form">
         <div class="shop-content-form-row">
           <styled-input
@@ -33,7 +33,7 @@
             [name]="'zipcode'"
             [value]="formDeliveryData.zipCode"
             [placeholder]="'Zip Code*'"
-            [type]="'zipcode'"
+            [type]="'zipCode'"
             [submitted]="formSubmitted"
           ></styled-input>
           <styled-input
