@@ -6,7 +6,7 @@
     </div>
     <div class="product-info">
       <h2 class="product-info-name">{{product.title}}</h2>
-      <p class="product-info-category">{{product.category}}</p>
+      <p class="product-info-category">{{product.category | titlecase }}</p>
       <p class="product-info-price">{{product.price}}€</p>
       <p class="product-info-price-note">incl. of taxes</p>
       <p class="product-info-price-note">

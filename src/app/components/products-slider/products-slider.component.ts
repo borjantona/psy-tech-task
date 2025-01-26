@@ -1,25 +1,35 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import Swiper from 'swiper';
 import { Category, Product } from 'src/app/interfaces/product';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { addIcons } from 'ionicons';
 import { chevronBackOutline, chevronForwardOutline } from 'ionicons/icons';
 import { Navigation, Pagination } from 'swiper/modules';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'products-slider',
   templateUrl: 'products-slider.component.html',
   styleUrls: ['products-slider.component.scss'],
-  imports: [ProductCardComponent],
+  imports: [ProductCardComponent, TitleCasePipe],
 })
-export class ProductsSliderComponent implements OnInit, AfterViewInit {
+export class ProductsSliderComponent
+  implements OnInit, AfterViewInit, OnChanges
+{
   @Input() products: Product[] = [];
   swiper: Swiper;
   @Input() category: Category;
   innerProducts: Product[] = [];
 
   constructor() {
-	addIcons({ chevronBackOutline, chevronForwardOutline });
+    addIcons({ chevronBackOutline, chevronForwardOutline });
   }
 
   ngOnInit() {
@@ -31,17 +41,26 @@ export class ProductsSliderComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-	this.initSwiper();
+    this.initSwiper();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+	console.log(changes)
+    if (changes['products']) {
+		if (this.swiper) {
+			console.log(this.swiper)
+
+		}
+    }
   }
 
   initSwiper() {
     this.swiper = new Swiper('.swiper', {
-      // Optional parameters
       observer: true,
       observeParents: true,
       direction: 'horizontal',
       slidesPerView: 1,
-	  modules: [Navigation, Pagination],
+      modules: [Navigation, Pagination],
       breakpoints: {
         1400: {
           slidesPerView: 5,
@@ -52,7 +71,7 @@ export class ProductsSliderComponent implements OnInit, AfterViewInit {
         900: {
           slidesPerView: 3,
         },
-        500: {
+        675: {
           slidesPerView: 2,
         },
       },
@@ -60,7 +79,7 @@ export class ProductsSliderComponent implements OnInit, AfterViewInit {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-	  /*pagination: {
+      /*pagination: {
         el: ".swiper-pagination",
         clickable: true,
       },*/

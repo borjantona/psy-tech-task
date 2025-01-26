@@ -9,12 +9,13 @@ import { IAppState } from 'src/app/store/app.state';
 import { CartProduct } from 'src/app/interfaces/cart';
 import { addProduct, removeAllProducts, removeProduct } from 'src/app/store/cart/cart.actions';
 import { Router } from '@angular/router';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'product-checkout-card',
   templateUrl: 'product-checkout-card.component.html',
   styleUrls: ['product-checkout-card.component.scss'],
-  imports: [IonIcon],
+  imports: [IonIcon, TitleCasePipe],
 })
 export class ProductCheckoutCardComponent implements OnInit {
   @Input() cartProduct: CartProduct;

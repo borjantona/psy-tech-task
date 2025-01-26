@@ -7,12 +7,13 @@ import { IAppState, ProductStore } from 'src/app/store/app.state';
 import { Observable } from 'rxjs';
 import { selectProducts } from 'src/app/store/products/products.selectors';
 import { Store } from '@ngrx/store';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-category',
   templateUrl: 'category.page.html',
   styleUrls: ['category.page.scss'],
-  imports: [IonContent, ProductCardComponent],
+  imports: [IonContent, ProductCardComponent, TitleCasePipe],
 })
 export class CategoryPage {
   category = '';

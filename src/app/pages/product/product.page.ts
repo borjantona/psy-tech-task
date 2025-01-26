@@ -8,12 +8,13 @@ import { IAppState } from 'src/app/store/app.state';
 import { addProduct } from 'src/app/store/cart/cart.actions';
 import { selectProducts } from 'src/app/store/products/products.selectors';
 import { StyledButtonComponent } from "../../components/elements/styled-button/styled-button.component";
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-product',
   templateUrl: 'product.page.html',
   styleUrls: ['product.page.scss'],
-  imports: [IonContent, StyledButtonComponent],
+  imports: [IonContent, StyledButtonComponent, TitleCasePipe],
 })
 export class ProductPage {
   productId: number;

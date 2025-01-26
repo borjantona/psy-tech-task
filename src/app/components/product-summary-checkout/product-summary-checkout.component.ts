@@ -6,12 +6,13 @@ import { IAppState } from 'src/app/store/app.state';
 import { CartProduct } from 'src/app/interfaces/cart';
 import { removeAllProducts, removeProduct } from 'src/app/store/cart/cart.actions';
 import { Router } from '@angular/router';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'product-summary-checkout',
   templateUrl: 'product-summary-checkout.component.html',
   styleUrls: ['product-summary-checkout.component.scss'],
-  imports: [],
+  imports: [TitleCasePipe],
 })
 export class ProductSummaryCheckoutComponent implements OnInit {
   @Input() cartProduct: CartProduct;

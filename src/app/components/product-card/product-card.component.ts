@@ -1,3 +1,4 @@
+import { TitleCasePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -9,8 +10,7 @@ import { addProduct } from 'src/app/store/cart/cart.actions';
   selector: 'product-card',
   templateUrl: 'product-card.component.html',
   styleUrls: ['product-card.component.scss'],
-  imports: [
-  ],
+  imports: [TitleCasePipe],
 })
 export class ProductCardComponent {
   @Input() product: Product;
