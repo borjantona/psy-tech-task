@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IonContent, IonButton } from '@ionic/angular/standalone';
+import { IonContent } from '@ionic/angular/standalone';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/interfaces/product';
 import { IAppState } from 'src/app/store/app.state';
 import { addProduct } from 'src/app/store/cart/cart.actions';
 import { selectProducts } from 'src/app/store/products/products.selectors';
+import { StyledButtonComponent } from "../../components/elements/styled-button/styled-button.component";
 
 @Component({
   selector: 'app-product',
   templateUrl: 'product.page.html',
   styleUrls: ['product.page.scss'],
-  imports: [IonContent, IonButton],
+  imports: [IonContent, StyledButtonComponent],
 })
 export class ProductPage {
   productId: number;
