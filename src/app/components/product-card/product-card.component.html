@@ -1,18 +1,32 @@
 <div class="product-card">
-	<div class="product-card-image" (click)="goToProductDetails()">
-		<img [alt]="'Image of ' + product.title" [src]="product.image" />
-	</div>
-	<div class="product-card-text">
-		<div class="product-card-text-name" (click)="addProductToCart()">
-			<p class="product-card-text-name-title">
-				{{product.title}}
-			</p>
-			<span class="product-card-text-name-category">
-				{{product.category | titlecase }}
-			</span>
-		</div>
-		<div clasS="product-card-text-price">
-			{{product.price}}€
-		</div>
-	</div>
+  <div class="product-card-image" (click)="goToProductDetails()">
+    <img [alt]="'Image of ' + product.title" [src]="product.image" />
+  </div>
+  <div class="product-card-text">
+    <div class="product-card-text-name">
+      <p class="product-card-text-name-title">
+        {{ product.title }}
+      </p>
+      <span class="product-card-text-name-category">
+        {{ product.category | titlecase }}
+      </span>
+    </div>
+    <div clasS="product-card-text-price">{{ product.price }}€</div>
+  </div>
+  <div class="product-card-actions">
+    <div class="product-card-actions-container">
+      <ion-icon
+        (click)="likeProduct()"
+        class="product-card-actions-container-icon"
+        name="heart-outline"
+      ></ion-icon>
+    </div>
+    <div class="product-card-actions-container">
+      <ion-icon
+        (click)="addProductToCart()"
+        class="product-card-actions-container-icon"
+        name="cart-outline"
+      ></ion-icon>
+    </div>
+  </div>
 </div>
