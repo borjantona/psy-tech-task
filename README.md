@@ -6,6 +6,7 @@
 
 ```
 npm i
+ionic serve
 ```
 
 External libraries used:
