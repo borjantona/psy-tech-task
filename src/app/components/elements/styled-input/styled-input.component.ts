@@ -3,13 +3,10 @@ import { NgClass } from '@angular/common';
 import {
   Input,
   Component,
-  HostListener,
   ViewChild,
   ElementRef,
   Output,
   EventEmitter,
-  OnInit,
-  OnDestroy,
   SimpleChanges,
   OnChanges,
 } from '@angular/core';

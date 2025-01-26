@@ -1,4 +1,4 @@
-import { act, Actions, createEffect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {
   addProduct,
   cleanCart,
@@ -8,7 +8,7 @@ import {
   removeAllProducts,
   removeProduct,
 } from './cart.actions';
-import { of, switchMap, tap, withLatestFrom } from 'rxjs';
+import { of, switchMap, withLatestFrom } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { IAppState } from '../app.state';
 import { Store } from '@ngrx/store';

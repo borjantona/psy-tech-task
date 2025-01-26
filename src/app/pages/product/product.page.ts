@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { Product } from 'src/app/interfaces/product';
 import { IAppState, ProductStore } from 'src/app/store/app.state';
 import { addProduct } from 'src/app/store/cart/cart.actions';
-import { selectProducts, selectProductsStore } from 'src/app/store/products/products.selectors';
+import { selectProductsStore } from 'src/app/store/products/products.selectors';
 import { StyledButtonComponent } from '../../components/elements/styled-button/styled-button.component';
 import { TitleCasePipe } from '@angular/common';
 import { addRemoveFavourite } from 'src/app/store/products/products.actions';

@@ -3,7 +3,7 @@ import { IonContent } from '@ionic/angular/standalone';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/interfaces/product';
 import { ProductCardComponent } from 'src/app/components/product-card/product-card.component';
-import { IAppState, ProductStore } from 'src/app/store/app.state';
+import { IAppState } from 'src/app/store/app.state';
 import { Observable } from 'rxjs';
 import { selectProducts } from 'src/app/store/products/products.selectors';
 import { Store } from '@ngrx/store';

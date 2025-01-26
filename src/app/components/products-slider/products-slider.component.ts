@@ -1,11 +1,7 @@
 import {
-	AfterContentChecked,
-  AfterViewInit,
   Component,
   Input,
-  OnChanges,
   OnInit,
-  SimpleChanges,
 } from '@angular/core';
 import Swiper from 'swiper';
 import { Category, Product } from 'src/app/interfaces/product';
