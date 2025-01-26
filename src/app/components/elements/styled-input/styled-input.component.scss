@@ -1,0 +1,26 @@
+.styled-input {
+	&-container {
+		display: fleX; 
+		flex-direction: column;
+	}
+	&-label {
+		color: var(--ion-color-primary);
+	}
+	&-component {
+		background-color: var(--ion-color-primary-contrast);
+		color: var(--ion-color-primary);
+		width: 100%;
+		padding: 6px 5px 6px 8px;
+		align-items: center;
+		border: 1px var(--ion-color-primary-tint) solid;
+		border-radius: 10px;
+		line-height: 2rem;
+		&-input {
+			padding: 5px;
+			width: 100%;
+			background: transparent;
+			border: 0;
+			outline: none;
+		}
+	}
+}

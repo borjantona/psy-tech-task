@@ -1,0 +1,16 @@
+<div class="styled-input-container">
+  <label class="styled-input-label">{{ label }}</label>
+  <div class="styled-input-component">
+    <input
+      (keydown.enter)="onEnterKeyPress()"
+      #input
+      class="styled-input-component-input"
+      [type]="type"
+      [(ngModel)]="val"
+      (input)="onInputChange($event)"
+      [disabled]="disabled"
+      [autocomplete]="autocomplete"
+      [placeholder]="placeholder"
+    />
+  </div>
+</div>
