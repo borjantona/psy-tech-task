@@ -1,4 +1,5 @@
 import {
+	AfterContentChecked,
   AfterViewInit,
   Component,
   Input,
@@ -12,67 +13,57 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 import { addIcons } from 'ionicons';
 import { chevronBackOutline, chevronForwardOutline } from 'ionicons/icons';
 import { Navigation, Pagination } from 'swiper/modules';
-import { TitleCasePipe } from '@angular/common';
+import { NgClass, TitleCasePipe } from '@angular/common';
+import { IonIcon } from '@ionic/angular/standalone';
+import _ from 'lodash';
 
 @Component({
   selector: 'products-slider',
   templateUrl: 'products-slider.component.html',
   styleUrls: ['products-slider.component.scss'],
-  imports: [ProductCardComponent, TitleCasePipe],
+  imports: [ProductCardComponent, TitleCasePipe, IonIcon, NgClass],
 })
 export class ProductsSliderComponent
-  implements OnInit, AfterViewInit, OnChanges
+  implements OnInit 
 {
   @Input() products: Product[] = [];
   swiper: Swiper;
   @Input() category: Category;
   innerProducts: Product[] = [];
+  categoryClean: string = '';
+  init = false;
 
   constructor() {
     addIcons({ chevronBackOutline, chevronForwardOutline });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.category !== undefined) {
       this.innerProducts = this.products.filter(
         (product) => product.category === this.category
       );
-    }
-  }
-
-  ngAfterViewInit() {
-    this.initSwiper();
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
-    if (changes['products']) {
-      if (this.swiper) {
-        console.log(this.swiper);
-        if (this.swiper instanceof Array) {
-          for (let swiper of this.swiper) {
-			swiper.update();
-          }
-        }
-      }
-    }
+      this.categoryClean = this.category.replace(/[^a-zA-Z0-9]/g, '');
+    } else {
+		this.innerProducts = _.cloneDeep(this.products);
+	}
+	setTimeout(() => {this.initSwiper();}, 200);
   }
 
   initSwiper() {
-    this.swiper = new Swiper('.swiper', {
+    this.swiper = new Swiper('.swiper-' + this.categoryClean, {
       observer: true,
       observeParents: true,
       direction: 'horizontal',
       slidesPerView: 1,
       modules: [Navigation, Pagination],
       breakpoints: {
-        1400: {
+        1630: {
           slidesPerView: 5,
         },
         1250: {
           slidesPerView: 4,
         },
-        900: {
+        1050: {
           slidesPerView: 3,
         },
         675: {
@@ -80,13 +71,13 @@ export class ProductsSliderComponent
         },
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next-' + this.categoryClean,
+        prevEl: '.swiper-button-prev-' + this.categoryClean,
       },
-      /*pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },*/
     });
+	this.init = true;
   }
+
+  prevSlide() {}
+  nextSlide() {}
 }

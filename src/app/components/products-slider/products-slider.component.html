@@ -1,16 +1,37 @@
 <div class="products-slider-header">
-	<h1 class="products-slider-category">{{ category | titlecase }}</h1>
-	<div class="products-slider-header-nav">
+  <h1 class="products-slider-category">{{ category | titlecase }}</h1>
+  <div class="products-slider-header-nav">
+    <div class="products-slider-header-nav-container">
+      <ion-icon
+        (click)="prevSlide()"
+        class="products-slider-header-nav-container-icon swiper-button-prev-{{
+          categoryClean
+        }}"
+        name="chevron-back-outline"
+      ></ion-icon>
+    </div>
+    <div class="products-slider-header-nav-container">
+      <ion-icon
+        (click)="nextSlide()"
+        class="products-slider-header-nav-container-icon swiper-button-next-{{
+          categoryClean
+        }}"
+        name="chevron-forward-outline"
+      ></ion-icon>
+    </div>
   </div>
 </div>
-<div class="swiper-container swiper">
-  <div aria-roledescription="carousel" class="swiper-wrapper">
+
+<div class="swiper-container swiper-{{ categoryClean }} swiper" [ngClass]="(!init) ? 'invisible' : ''">
+  <div aria-roledescription="carousel" id="hola" class="swiper-wrapper">
     @for (product of innerProducts; track product.id) {
-    <div class="swiper-slide">
-      <product-card [product]="product"></product-card>
-    </div>
+		<div class="swiper-slide">
+			<product-card [product]="product"></product-card>
+		</div>
     }
   </div>
-  <div class="swiper-button-prev invisible"></div>
-  <div class="swiper-button-next invisible"></div>
 </div>
+<div [ngClass]="(init) ? 'invisible' : 'loading'">
+	<div class="spinner"></div>
+</div>
+

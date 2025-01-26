@@ -1,3 +1,34 @@
+.products-slider {
+  &-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &-nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+      gap: 8px;
+      padding-right: 12px;
+      margin-top: auto;
+      &-container {
+        background-color: var(--ion-color-primary-contrast);
+        &-icon {
+          background-color: var(--ion-color-primary-contrast);
+          border-radius: 20px;
+          width: 26px;
+          font-size: 18px;
+          cursor: pointer;
+          &:hover {
+            background-color: var(--ion-color-primary-tint);
+            color: var(--ion-color-primary-contrast);
+          }
+          border: 1px solid var(--ion-color-primary-tint);
+        }
+      }
+    }
+  }
+}
+
 @import "swiper/css/pagination";
 
 .swiper {
@@ -10,9 +41,33 @@
 }
 
 .invisible {
-	visibility: hidden;
+  display: none;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 450px;
 }
 
 .swiper-container {
-	padding: 16px;
+  padding: 16px;
+}
+
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 9px solid;
+  border-color: var(--ion-color-light-tint);
+  border-right-color: var(--ion-color-primary);
+  animation: spinner-d3wgkg 1s infinite linear;
+}
+
+@keyframes spinner-d3wgkg {
+  to {
+    transform: rotate(1turn);
+  }
 }

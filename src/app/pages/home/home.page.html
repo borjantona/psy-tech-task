@@ -1,14 +1,16 @@
 <ion-content>
   <div class="container">
     <main class="home-main">
-      @for(category of categories; track category) {
-		<div class="home-main-category">
-			<products-slider
+      @if(products.length > 0) { 
+		@for(category of categories; track category) {
+			<div class="home-main-category">
+				<products-slider
 				[products]="products"
 				[category]="category"
-			></products-slider>
-		</div>
-      }
+				></products-slider>
+			</div>
+			}
+		}
     </main>
   </div>
 </ion-content>
