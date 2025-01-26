@@ -12,14 +12,11 @@ import { addProduct } from 'src/app/store/cart/cart.actions';
   imports: [
   ],
 })
-export class ProductCardComponent implements OnInit {
+export class ProductCardComponent {
   @Input() product: Product;
 
   constructor(private router: Router, private store: Store) {}
 
-  ngOnInit() {
-	//console.log(this.product)
-  }
 
   goToProductDetails() {
 	this.router.navigate(['/product/'+this.product.id], {});

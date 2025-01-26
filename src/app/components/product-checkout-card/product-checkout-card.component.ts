@@ -8,6 +8,7 @@ import { heartOutline, trashOutline } from 'ionicons/icons';
 import { IAppState } from 'src/app/store/app.state';
 import { CartProduct } from 'src/app/interfaces/cart';
 import { removeAllProducts, removeProduct } from 'src/app/store/cart/cart.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'product-checkout-card',
@@ -20,7 +21,7 @@ export class ProductCheckoutCardComponent implements OnInit {
   @Input() products: Product[];
   product: Product;
 
-  constructor(private store: Store<IAppState>) {
+  constructor(private store: Store<IAppState>, private router: Router) {
     addIcons({ trashOutline, heartOutline });
   }
 
@@ -28,6 +29,10 @@ export class ProductCheckoutCardComponent implements OnInit {
     this.product = this.products.find(
       (prod) => prod.id === this.cartProduct?.productId
     )!;
+  }
+
+  goToProductDetails() {
+	this.router.navigate(['/product/'+this.product.id], {});
   }
 
   removeProduct() {

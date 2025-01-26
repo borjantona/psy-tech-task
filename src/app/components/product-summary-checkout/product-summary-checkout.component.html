@@ -1,6 +1,6 @@
 <div class="product-summary-checkout">
   @if(product) {
-  <div class="product-summary-checkout-image">
+  <div class="product-summary-checkout-image" (click)="goToProductDetails()">
     <img [src]="product.image" />
   </div>
   <div class="product-summary-checkout-content">
