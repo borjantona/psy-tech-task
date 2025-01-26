@@ -25,12 +25,7 @@
         <span>Estimated Delivery & Handling</span><span>Free</span>
       </p>
       <p class="cart-summary-total"><span>Total</span><span>{{totalPrice | number : '1.2-2'}}€</span></p>
-      <ion-button
-        class="cart-summary-button"
-        color="primary"
-        [routerLink]="['/checkout']" 
-        >Proceed to checkout</ion-button
-      >
+	  <styled-button [link]="'/checkout'" [text]="'Proceed to checkout'"></styled-button>
     </div>
   </main>
 </ion-content>

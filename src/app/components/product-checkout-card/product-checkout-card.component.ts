@@ -5,8 +5,6 @@ import { IonIcon } from '@ionic/angular/standalone';
 import { Product } from 'src/app/interfaces/product';
 import { addIcons } from 'ionicons';
 import { heartOutline, trashOutline } from 'ionicons/icons';
-import { Observable } from 'rxjs';
-import { selectProducts } from 'src/app/store/products/products.selectors';
 import { IAppState } from 'src/app/store/app.state';
 import { CartProduct } from 'src/app/interfaces/cart';
 import { removeAllProducts, removeProduct } from 'src/app/store/cart/cart.actions';

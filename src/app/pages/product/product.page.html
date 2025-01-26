@@ -12,12 +12,7 @@
       <p class="product-info-price-note">
         (Also includes all applicable duties)
       </p>
-      <ion-button
-        class="product-info-add-to-cart"
-        color="primary"
-        (click)="addToCart()"
-        >Add to cart</ion-button
-      >
+	  <styled-button (click)="addToCart()" [text]="'Add to cart'"></styled-button>
       <p class="product-info-description">{{product.description}}</p>
     </div>
   </main>
