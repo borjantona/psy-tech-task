@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { HeaderComponent } from './components/header/header.component';
 import { Store } from '@ngrx/store';
@@ -11,8 +11,10 @@ import { getCategories, getProducts } from './store/products/products.actions';
   templateUrl: 'app.component.html',
   imports: [IonApp, IonRouterOutlet, HeaderComponent],
 })
-export class AppComponent {
-  constructor(private store: Store<IAppState>) {
+export class AppComponent implements OnInit {
+  constructor(private store: Store<IAppState>) {}
+
+  ngOnInit(): void {
 	let userId = 1;
 	localStorage.setItem('userId', userId.toString());
 	this.store.dispatch(initCart({ userId }));

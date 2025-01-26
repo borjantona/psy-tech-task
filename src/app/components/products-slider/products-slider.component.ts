@@ -45,12 +45,16 @@ export class ProductsSliderComponent
   }
 
   ngOnChanges(changes: SimpleChanges) {
-	console.log(changes)
+    console.log(changes);
     if (changes['products']) {
-		if (this.swiper) {
-			console.log(this.swiper)
-
-		}
+      if (this.swiper) {
+        console.log(this.swiper);
+        if (this.swiper instanceof Array) {
+          for (let swiper of this.swiper) {
+			swiper.update();
+          }
+        }
+      }
     }
   }
 

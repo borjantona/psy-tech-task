@@ -15,19 +15,20 @@ import { TitleCasePipe } from '@angular/common';
   styleUrls: ['category.page.scss'],
   imports: [IonContent, ProductCardComponent, TitleCasePipe],
 })
-export class CategoryPage {
+export class CategoryPage implements OnInit {
   category = '';
   products: Product[] = [];
   products$: Observable<Product[]>;
 
-  constructor(
-    private route: ActivatedRoute,
-	private store: Store<IAppState>
-  ) {
-	this.category = this.route.snapshot.params['cat'];
-    this.products$ = store.select(selectProducts);
+  constructor(private route: ActivatedRoute, private store: Store<IAppState>) {}
+
+  ngOnInit(): void {
+    this.category = this.route.snapshot.params['cat'];
+    this.products$ = this.store.select(selectProducts);
     this.products$.subscribe((products) => {
-		this.products = products.filter((prod) => prod.category === this.category)
+      this.products = products.filter(
+        (prod) => prod.category === this.category
+      );
     });
   }
 }
