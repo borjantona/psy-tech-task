@@ -2,6 +2,7 @@
 	&-container {
 		display: fleX; 
 		flex-direction: column;
+		gap: 6px;
 	}
 	&-label {
 		color: var(--ion-color-primary);
@@ -24,3 +25,12 @@
 		}
 	}
 }
+
+.valid {
+	color: var(--valid-status-color);
+  }
+  
+  .error {
+	color: var(--error-status-color);
+  }
+  

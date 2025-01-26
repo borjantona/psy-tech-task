@@ -2,7 +2,6 @@
   <label class="styled-input-label">{{ label }}</label>
   <div class="styled-input-component">
     <input
-      (keydown.enter)="onEnterKeyPress()"
       #input
       class="styled-input-component-input"
       [type]="type"
@@ -13,4 +12,9 @@
       [placeholder]="placeholder"
     />
   </div>
+  @if(msg && submitted) {
+  <div [ngClass]="status">
+    {{ msg }}
+  </div>
+  }
 </div>
