@@ -6,23 +6,25 @@ import { Observable } from 'rxjs';
 import { ProductCheckoutCardComponent } from 'src/app/components/product-checkout-card/product-checkout-card.component';
 import { Cart } from 'src/app/interfaces/cart';
 import { Product } from 'src/app/interfaces/product';
-import { IAppState } from 'src/app/store/app.state';
+import { IAppState, ProductStore } from 'src/app/store/app.state';
 import { selectCart } from 'src/app/store/cart/cart.selectors';
-import { selectProducts } from 'src/app/store/products/products.selectors';
+import { selectProducts, selectProductsStore } from 'src/app/store/products/products.selectors';
 import { StyledButtonComponent } from "../../components/elements/styled-button/styled-button.component";
+import { ProductCardComponent } from "../../components/product-card/product-card.component";
 
 @Component({
   selector: 'app-cart',
   templateUrl: 'cart.page.html',
   styleUrls: ['cart.page.scss'],
-  imports: [IonContent, ProductCheckoutCardComponent, DecimalPipe, StyledButtonComponent],
+  imports: [IonContent, ProductCheckoutCardComponent, DecimalPipe, StyledButtonComponent, ProductCardComponent],
 })
 export class CartPage implements OnInit {
   cart$: Observable<Cart>;
   cart: Cart;
   totalPrice: number;
-  products$: Observable<Product[]>;
+  products$: Observable<ProductStore>;
   products: Product[] = [];
+  favourites: Product[] = [];
 
   constructor(private store: Store<IAppState>) {}
 
@@ -40,9 +42,10 @@ export class CartPage implements OnInit {
 		}, 0)
 	  }
     });
-    this.products$ = this.store.select(selectProducts);
-    this.products$.subscribe((products) => {
-      this.products = products;
+    this.products$ = this.store.select(selectProductsStore);
+    this.products$.subscribe((productsStore) => {
+      this.products = productsStore.products;
+      this.favourites = productsStore.favourites;
     });
   }
   

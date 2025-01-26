@@ -8,5 +8,6 @@ export interface IAppState {
 
 export interface ProductStore {
 	products: Product[],
-	categories: Category[]
+	categories: Category[],
+	favourites: Product[]
 }

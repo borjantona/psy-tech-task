@@ -1,31 +1,44 @@
 <ion-content>
   <main class="container">
-    <div class="cart-content">
-      @if(cart && cart.products && cart.products.length > 0) {
-      <div class="cart-content-title">Bag</div>
-      <div class="cart-content-products">
-        @for(cartProduct of cart.products; track cartProduct.productId) {
-			<product-checkout-card
-			[cartProduct]="cartProduct"
-			[products]="products"
-			></product-checkout-card>
-        } 
+    <div class="cart">
+      <div class="cart-content">
+        @if(cart && cart.products && cart.products.length > 0) {
+        <div class="cart-content-title">Bag</div>
+        <div class="cart-content-products">
+          @for(cartProduct of cart.products; track cartProduct.productId) {
+          <product-checkout-card
+            [cartProduct]="cartProduct"
+            [products]="products"
+          ></product-checkout-card>
+          }
+        </div>
+        }
       </div>
-      }
-      <div class="cart-content-favourites">
-        <div class="cart-content-favourites-title">Favourites</div>
+      <div class="cart-summary">
+        <h1 class="cart-summary-title">Summary</h1>
+        <p class="cart-summary-subtitle">
+          <span>Subtotal:</span
+          ><span>{{totalPrice | number : '1.2-2' }} €</span>
+        </p>
+        <p class="cart-summary-subtitle">
+          <span>Estimated Delivery & Handling</span><span>Free</span>
+        </p>
+        <p class="cart-summary-total">
+          <span>Total</span><span>{{totalPrice | number : '1.2-2'}} €</span>
+        </p>
+        <styled-button
+          [link]="'/checkout'"
+          [text]="'Proceed to checkout'"
+        ></styled-button>
       </div>
     </div>
-    <div class="cart-summary">
-      <h1 class="cart-summary-title">Summary</h1>
-      <p class="cart-summary-subtitle">
-        <span>Subtotal:</span><span>{{totalPrice | number : '1.2-2' }} €</span>
-      </p>
-      <p class="cart-summary-subtitle">
-        <span>Estimated Delivery & Handling</span><span>Free</span>
-      </p>
-      <p class="cart-summary-total"><span>Total</span><span>{{totalPrice | number : '1.2-2'}} €</span></p>
-	  <styled-button [link]="'/checkout'" [text]="'Proceed to checkout'"></styled-button>
+    <div class="cart-favourites">
+      <div class="cart-favourites-title">Favourites</div>
+      <div class="cart-favourites-content">
+        @for(favourite of favourites; track favourite.id) {
+        <product-card [product]="favourite"></product-card>
+        }
+      </div>
     </div>
   </main>
 </ion-content>

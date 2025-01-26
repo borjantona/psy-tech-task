@@ -13,6 +13,7 @@
         (Also includes all applicable duties)
       </p>
 	  <styled-button (click)="addToCart()" [text]="'Add to cart'"></styled-button>
+	  <styled-button (click)="likeProduct()" [text]="isFavourite ? 'Remove of favourites' : 'Add to favourites'"></styled-button>
       <p class="product-info-description">{{product.description}}</p>
     </div>
   </main>

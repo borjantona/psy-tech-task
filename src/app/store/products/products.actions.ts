@@ -6,6 +6,7 @@ export const PRODUCT_ACTIONS = {
   LOAD_PRODUCTS: '[PRODUCTS] LOAD PRODUCTS',
   GET_CATEGORIES: '[PRODUCTS] GET CATEGORIES',
   LOAD_CATEGORIES: '[PRODUCTS] LOAD CATEGORIES',
+  ADD_FAVOURITE: '[PRODUCTS] ADD/REMOVE FAVOURITE',
 };
 
 export const getProducts = createAction(PRODUCT_ACTIONS.GET_PRODUCTS);
@@ -17,5 +18,9 @@ export const getCategories = createAction(PRODUCT_ACTIONS.GET_CATEGORIES);
 export const loadCategories = createAction(
   PRODUCT_ACTIONS.LOAD_CATEGORIES,
   props<{ categories: Category[] }>()
+);
+export const addRemoveFavourite = createAction(
+  PRODUCT_ACTIONS.ADD_FAVOURITE,
+  props<{ productId: number }>()
 );
 

@@ -32,7 +32,7 @@
       <ion-icon
         (click)="likeProduct()"
         class="product-checkout-card-content-icons-icon"
-        name="heart-outline"
+        [name]="!isFavourite ? 'heart-outline' : 'heart'"
         size="large"
       ></ion-icon>
       <ion-icon

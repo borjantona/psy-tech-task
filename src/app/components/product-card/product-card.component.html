@@ -18,6 +18,7 @@
       <ion-icon
         (click)="likeProduct()"
         class="product-card-actions-container-icon"
+		[ngClass]="(isFavourite) ? 'isFavourite' : ''"
         name="heart-outline"
       ></ion-icon>
     </div>

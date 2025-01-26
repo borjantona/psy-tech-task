@@ -81,6 +81,10 @@
 				color: var(--ion-color-primary-contrast);
 			}
 			border: 1px solid var(--ion-color-primary-tint);
+			&.isFavourite {
+				background-color: var(--ion-color-primary-tint);
+				color: var(--ion-color-primary-contrast);
+			}
 		}
 		
 	}
