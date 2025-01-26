@@ -1,4 +1,4 @@
-<ion-header class="header">
+<ion-header class="header" id="main-content">
   <div class="header-logo">
     <img
       [routerLink]="['/']"
@@ -11,7 +11,9 @@
       @for (category of categories; track category) {
       <span
         class="header-nav-categories-category"
-        [ngClass]="((url | decodeUri) === '/category/' + category) ? 'selected' : ''"
+        [ngClass]="
+          (url | decodeUri) === '/category/' + category ? 'selected' : ''
+        "
         [routerLink]="['/category/' + category]"
         >{{ category | titlecase }}</span
       >
@@ -20,11 +22,12 @@
   </div>
   <div class="header-icons">
     <ion-icon
-      (click)="handleOnClick($event)"
-      class="ion-float-end header-icons-icon"
+      (click)="openSideMenu()"
+      class="ion-float-end header-icons-icon ion-float-end header-icons-icon-menu"
       name="menu-outline"
       size="large"
     ></ion-icon>
+
     <ion-badge class="header-icons-icon-cart-badge" color="primary"
       ><span class="header-icons-icon-cart-badge-text">{{
         cart$ | async
@@ -38,3 +41,26 @@
     ></ion-icon>
   </div>
 </ion-header>
+
+<ion-menu menuId="side-menu" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Categories</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <div class="header-nav-menu-categories">
+      @for (category of categories; track category) {
+      <ion-item>
+        <ion-label
+		class="header-nav-menu-categories-category"
+          [ngClass]="(url | decodeUri) === '/category/' + category ? 'selected' : ''"
+		  (click)="closeSideMenu()"
+          [routerLink]="['/category/' + category]">
+          <h2>{{ category | titlecase }}</h2>
+        </ion-label>
+      </ion-item>
+      }
+    </div>
+  </ion-content>
+</ion-menu>

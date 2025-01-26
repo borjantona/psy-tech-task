@@ -1,7 +1,17 @@
 import { AsyncPipe, TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { IonHeader, IonBadge } from '@ionic/angular/standalone';
+import {
+  IonHeader,
+  IonBadge,
+  IonMenu,
+  IonToolbar,
+  IonItem,
+  IonLabel,
+  MenuController,
+  IonTitle,
+  IonContent,
+} from '@ionic/angular/standalone';
 import { IonIcon } from '@ionic/angular/standalone';
 import { Store } from '@ngrx/store';
 import { addIcons } from 'ionicons';
@@ -20,13 +30,19 @@ import { DecodeUriPipe } from 'src/app/pipes/decode-uri.pipe';
   styleUrls: ['header.component.scss'],
   imports: [
     IonHeader,
+    IonMenu,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+	IonItem,
+	IonLabel,
     IonIcon,
     NgClass,
     RouterModule,
     AsyncPipe,
     IonBadge,
-	TitleCasePipe,
-	DecodeUriPipe
+    TitleCasePipe,
+    DecodeUriPipe,
   ],
 })
 export class HeaderComponent implements OnInit {
@@ -36,7 +52,7 @@ export class HeaderComponent implements OnInit {
   categories$: Observable<Category[]>;
   categories: Category[] = [];
 
-  constructor(private router: Router, private store: Store<IAppState>) {
+  constructor(private router: Router, private store: Store<IAppState>, private menuCtrl: MenuController) {
     addIcons({ cartOutline, menuOutline });
     this.url$ = this.router.events.pipe(
       filter((event: any) => event instanceof NavigationEnd),
@@ -57,6 +73,14 @@ export class HeaderComponent implements OnInit {
       this.url = url;
     });
   }
+
+  openSideMenu() {
+    this.menuCtrl.open('side-menu');
+  }
+  closeSideMenu() {
+    this.menuCtrl.close('side-menu');
+  }
+
 
   handleOnClick(ev: Event) {}
 }
