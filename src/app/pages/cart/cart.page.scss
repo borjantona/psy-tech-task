@@ -48,6 +48,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+	  gap: 16px;
     }
     &-total {
       display: flex;
@@ -75,13 +76,12 @@
 }
 @media screen and (max-width: 860px) {
   .cart {
-    &-main {
-      flex-direction: column;
-      gap: 20px;
-      &-summary {
-        flex: 2;
-      }
+    flex-direction: column;
+    gap: 20px;
+    &-summary {
+      flex: 2;
     }
+
     &-favourites {
       &-content {
         grid-template-columns: repeat(2, 1fr);

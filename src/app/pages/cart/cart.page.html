@@ -1,8 +1,8 @@
 <ion-content>
   <main class="container">
     <div class="cart">
+      @if(cart && cart.products && cart.products.length > 0) {
       <div class="cart-content">
-        @if(cart && cart.products && cart.products.length > 0) {
         <div class="cart-content-title">Bag</div>
         <div class="cart-content-products">
           @for(cartProduct of cart.products; track cartProduct.productId) {
@@ -12,9 +12,10 @@
           ></product-checkout-card>
           }
         </div>
-        }
       </div>
-      <div class="cart-summary">
+      }
+      <div
+        class="cart-summary">
         <h1 class="cart-summary-title">Summary</h1>
         <p class="cart-summary-subtitle">
           <span>Subtotal:</span
