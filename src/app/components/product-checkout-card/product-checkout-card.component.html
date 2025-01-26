@@ -8,13 +8,25 @@
       <span class="product-checkout-card-content-title-name">
         {{ product.title }}
       </span>
-      <span class="product-checkout-card-content-title-price"> {{product.price}}€ </span>
+      <span class="product-checkout-card-content-title-price">
+        {{ product.price }}€
+      </span>
     </div>
     <div class="product-checkout-card-content-subtitle">
       {{ product.category }}
     </div>
     <div class="product-checkout-card-content-quantity">
-      Quantity: {{ cartProduct.quantity }}
+      <div class="product-checkout-card-content-quantity-info">
+        Quantity: {{ cartProduct.quantity }}
+      </div>
+      <div class="product-checkout-card-content-quantity-buttons">
+        <button (click)="addQuantity()"
+          class="product-checkout-card-content-quantity-buttons-button"
+        >+</button>
+        <button (click)="decreaseQuantity()"
+          class="product-checkout-card-content-quantity-buttons-button"
+        >-</button>
+      </div>
     </div>
     <div class="product-checkout-card-content-icons">
       <ion-icon

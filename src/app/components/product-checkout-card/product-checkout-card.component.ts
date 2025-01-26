@@ -7,7 +7,7 @@ import { addIcons } from 'ionicons';
 import { heartOutline, trashOutline } from 'ionicons/icons';
 import { IAppState } from 'src/app/store/app.state';
 import { CartProduct } from 'src/app/interfaces/cart';
-import { removeAllProducts, removeProduct } from 'src/app/store/cart/cart.actions';
+import { addProduct, removeAllProducts, removeProduct } from 'src/app/store/cart/cart.actions';
 import { Router } from '@angular/router';
 
 @Component({
@@ -38,8 +38,11 @@ export class ProductCheckoutCardComponent implements OnInit {
   removeProduct() {
 	this.store.dispatch(removeAllProducts({productId: this.product.id}))
   }
+  addQuantity() {
+	this.store.dispatch(addProduct({ product: this.product }));
+  }
   decreaseQuantity() {
-	this.store.dispatch(removeProduct({productId: this.product.id}))
+	this.store.dispatch(removeProduct({productId: this.product.id}));
   }
   likeProduct() {}
 }

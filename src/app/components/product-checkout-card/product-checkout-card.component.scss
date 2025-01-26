@@ -32,6 +32,25 @@
     }
     &-quantity {
       color: var(--ion-color-primary-tint);
+	  display: flex;
+	  flex-direction: row;
+	  gap: 16px;
+	  &-buttons {
+		display:flex;
+		flex-direction: row;
+		gap: 4px;
+		&-button {
+			width: 16px;
+			background-color: var(--ion-color-primary-contrast);
+			color: var(--ion-color-primary);
+			border-radius: 20px;
+			border: 1px solid var(--ion-color-primary-tint);
+			&:hover {
+				background-color: var(--ion-color-primary-tint);
+				color: var(--ion-color-primary-contrast);
+			}
+		}
+	  }
     }
     &-icons {
       display: flex;
