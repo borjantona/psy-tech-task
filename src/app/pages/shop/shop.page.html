@@ -1,11 +1,105 @@
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-	Shop
+<ion-content>
+  <div class="container">
+    <div class="shop-content">
+      @if(cart && cart.products && cart.products.length > 0) {
+      <div class="shop-content-title">Delivery options</div>
+      <form class="shop-content-form">
+        <div class="shop-content-form-row">
+          <styled-input
+            [required]="true"
+            [name]="'name'"
+            [value]="formDeliveryData.name"
+            [placeholder]="'Name*'"
+            [submitted]="formSubmitted"
+          ></styled-input>
+          <styled-input
+            [required]="true"
+            [name]="'lastname'"
+            [value]="formDeliveryData.lastName"
+            [placeholder]="'Last Name*'"
+            [submitted]="formSubmitted"
+          ></styled-input>
+        </div>
+        <styled-input
+          [required]="true"
+          [name]="'address'"
+          [value]="formDeliveryData.address"
+          [placeholder]="'Address*'"
+          [submitted]="formSubmitted"
+        ></styled-input>
+        <div class="shop-content-form-row">
+          <styled-input
+            [required]="true"
+            [name]="'zipcode'"
+            [value]="formDeliveryData.zipCode"
+            [placeholder]="'Zip Code*'"
+            [type]="'zipcode'"
+            [submitted]="formSubmitted"
+          ></styled-input>
+          <styled-input
+            [required]="true"
+            [name]="'city'"
+            [value]="formDeliveryData.city"
+            [placeholder]="'City*'"
+            [submitted]="formSubmitted"
+          ></styled-input>
+          <styled-input
+            [required]="true"
+            [name]="'country'"
+            [value]="formDeliveryData.country"
+            [placeholder]="'Country*'"
+            [submitted]="formSubmitted"
+          ></styled-input>
+        </div>
+        <div class="shop-content-form-row">
+          <styled-input
+            [required]="true"
+            [name]="'email'"
+            [value]="formDeliveryData.email"
+            [placeholder]="'E-mail*'"
+            [type]="'email'"
+            [submitted]="formSubmitted"
+          ></styled-input>
+          <styled-input
+            [required]="true"
+            [name]="'phone'"
+            [value]="formDeliveryData.phone"
+            [placeholder]="'Phone Number*'"
+            [type]="'phone'"
+            [submitted]="formSubmitted"
+          ></styled-input>
+        </div>
+      </form>
+      <div class="shop-content-form-submit">
+        <styled-button
+          (click)="submitForm()"
+          [text]="'Go to payment methods'"
+        ></styled-button>
+      </div>
+      }
+    </div>
+    <div class="shop-summary">
+      <h1 class="shop-summary-title">In your bag</h1>
+      <p class="shop-summary-subtitle">
+        <span>Subtotal:</span><span>{{totalPrice | number : '1.2-2' }}€</span>
+      </p>
+      <p class="shop-summary-subtitle">
+        <span>Estimated Delivery & Handling</span><span>Free</span>
+      </p>
+      <p class="shop-summary-total">
+        <span>Total</span><span>{{totalPrice | number : '1.2-2'}}€</span>
+      </p>
+      <p class="shop-summary-arrival">{{arrival}}</p>
+      @if(cart && cart.products && cart.products.length > 0) {
+      <div class="shop-summary-order">
+        @for(cartProduct of cart.products; track cartProduct.productId) {
+        <product-summary-checkout
+          [cartProduct]="cartProduct"
+          [products]="products"
+        ></product-summary-checkout>
+        }
+      </div>
+      }
+    </div>
   </div>
 </ion-content>
