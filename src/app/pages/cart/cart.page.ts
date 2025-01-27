@@ -20,7 +20,11 @@ import { ProductCardComponent } from "../../components/product-card/product-card
 })
 export class CartPage implements OnInit {
   cart$: Observable<Cart>;
-  cart: Cart;
+  cart: Cart = {
+	date: '',
+	userId: 0,
+	products: [],
+  };
   totalPrice: number;
   products$: Observable<ProductStore>;
   products: Product[] = [];
@@ -42,14 +46,16 @@ export class CartPage implements OnInit {
     });
   }
 
-  updatePrice() {
-    this.totalPrice = this.cart.products.reduce((total, cartProd) => {
-      const prod = this.products.find((p) => p.id === cartProd.productId);
-      if (prod) {
-        total += prod.price * cartProd.quantity;
-      }
-      return total;
-    }, 0);
+  updatePrice(): void {
+	this.totalPrice = this.cart.products.reduce(
+	  (sum, product) => sum + product.quantity * this.getProductPrice(product.productId),
+	  0
+	);
+  }
+  
+  getProductPrice(productId: number): number {
+	const product = this.products.find((p) => p.id === productId);
+	return product ? product.price : 0;
   }
   
 }

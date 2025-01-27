@@ -18,7 +18,7 @@ export class HomePage implements OnInit {
   products: Product[] = [];
   categories: Category[] = [];
 
-  constructor(private store: Store<IAppState>) {}
+  constructor(public store: Store<IAppState>) {}
 
   ngOnInit(): void {
 	this.products$ = this.store.select(selectProductsStore);

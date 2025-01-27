@@ -34,8 +34,8 @@ import { DecodeUriPipe } from 'src/app/pipes/decode-uri.pipe';
     IonToolbar,
     IonTitle,
     IonContent,
-	IonItem,
-	IonLabel,
+    IonItem,
+    IonLabel,
     IonIcon,
     NgClass,
     RouterModule,
@@ -52,7 +52,11 @@ export class HeaderComponent implements OnInit {
   categories$: Observable<Category[]>;
   categories: Category[] = [];
 
-  constructor(private router: Router, private store: Store<IAppState>, private menuCtrl: MenuController) {
+  constructor(
+    private router: Router,
+    private store: Store<IAppState>,
+    private menuCtrl: MenuController
+  ) {
     addIcons({ cartOutline, menuOutline });
   }
 
@@ -60,18 +64,18 @@ export class HeaderComponent implements OnInit {
     this.url$.subscribe((url) => {
       this.url = url;
     });
-	this.url$ = this.router.events.pipe(
-		filter((event: any) => event instanceof NavigationEnd),
-		map((event: NavigationEnd) => {
-		  return event.url;
-		})
-	  );
-	  this.cart$ = this.store.select(selectCartTotal);
-  
-	  this.categories$ = this.store.select(selectCategories);
-	  this.categories$.subscribe((categories) => {
-		this.categories = categories;
-	  });
+    this.url$ = this.router.events.pipe(
+      filter((event: any) => event instanceof NavigationEnd),
+      map((event: NavigationEnd) => {
+        return event.url;
+      })
+    );
+    this.cart$ = this.store.select(selectCartTotal);
+
+    this.categories$ = this.store.select(selectCategories);
+    this.categories$.subscribe((categories) => {
+      this.categories = categories;
+    });
   }
 
   openSideMenu(): void {
