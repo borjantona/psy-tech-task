@@ -14,7 +14,7 @@ import { selectFavourites } from 'src/app/store/products/products.selectors';
 import { IAppState } from 'src/app/store/app.state';
 
 @Component({
-  selector: 'product-card',
+  selector: 'app-product-card',
   templateUrl: 'product-card.component.html',
   styleUrls: ['product-card.component.scss'],
   imports: [TitleCasePipe, IonIcon, NgClass],

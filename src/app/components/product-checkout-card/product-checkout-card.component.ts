@@ -19,7 +19,7 @@ import { Observable } from 'rxjs';
 import { selectFavourites } from 'src/app/store/products/products.selectors';
 
 @Component({
-  selector: 'product-checkout-card',
+  selector: 'app-product-checkout-card',
   templateUrl: 'product-checkout-card.component.html',
   styleUrls: ['product-checkout-card.component.scss'],
   imports: [IonIcon, TitleCasePipe],

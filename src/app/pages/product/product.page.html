@@ -12,8 +12,8 @@
       <p class="product-info-price-note">
         (Also includes all applicable duties)
       </p>
-	  <styled-button (click)="addToCart()" [text]="'Add to cart'"></styled-button>
-	  <styled-button (click)="likeProduct()" [text]="isFavourite ? 'Remove of favourites' : 'Add to favourites'"></styled-button>
+	  <app-styled-button (click)="addToCart()" [text]="'Add to cart'"></app-styled-button>
+	  <app-styled-button (click)="likeProduct()" [text]="isFavourite ? 'Remove of favourites' : 'Add to favourites'"></app-styled-button>
       <p class="product-info-description">{{product.description}}</p>
     </div>
   </main>

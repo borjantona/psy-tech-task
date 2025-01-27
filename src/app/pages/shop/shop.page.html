@@ -5,76 +5,76 @@
       <div class="shop-content-title">Delivery information</div>
       <form class="shop-content-form">
         <div class="shop-content-form-row">
-          <styled-input
+          <app-styled-input
             [required]="true"
             [name]="'name'"
             [value]="formDeliveryData.name"
             [placeholder]="'Name*'"
             [submitted]="formSubmitted"
-          ></styled-input>
-          <styled-input
+          ></app-styled-input>
+          <app-styled-input
             [required]="true"
             [name]="'lastname'"
             [value]="formDeliveryData.lastName"
             [placeholder]="'Last Name*'"
             [submitted]="formSubmitted"
-          ></styled-input>
+          ></app-styled-input>
         </div>
-        <styled-input
+        <app-styled-input
           [required]="true"
           [name]="'address'"
           [value]="formDeliveryData.address"
           [placeholder]="'Address*'"
           [submitted]="formSubmitted"
-        ></styled-input>
+        ></app-styled-input>
         <div class="shop-content-form-row">
-          <styled-input
+          <app-styled-input
             [required]="true"
             [name]="'zipcode'"
             [value]="formDeliveryData.zipCode"
             [placeholder]="'Zip Code*'"
             [type]="'zipCode'"
             [submitted]="formSubmitted"
-          ></styled-input>
-          <styled-input
+          ></app-styled-input>
+          <app-styled-input
             [required]="true"
             [name]="'city'"
             [value]="formDeliveryData.city"
             [placeholder]="'City*'"
             [submitted]="formSubmitted"
-          ></styled-input>
-          <styled-input
+          ></app-styled-input>
+          <app-styled-input
             [required]="true"
             [name]="'country'"
             [value]="formDeliveryData.country"
             [placeholder]="'Country*'"
             [submitted]="formSubmitted"
-          ></styled-input>
+          ></app-styled-input>
         </div>
         <div class="shop-content-form-row">
-          <styled-input
+          <app-styled-input
             [required]="true"
             [name]="'email'"
             [value]="formDeliveryData.email"
             [placeholder]="'E-mail*'"
             [type]="'email'"
             [submitted]="formSubmitted"
-          ></styled-input>
-          <styled-input
+          ></app-styled-input>
+          <app-styled-input
             [required]="true"
             [name]="'phone'"
             [value]="formDeliveryData.phone"
             [placeholder]="'Phone Number*'"
             [type]="'phone'"
             [submitted]="formSubmitted"
-          ></styled-input>
+          ></app-styled-input>
         </div>
       </form>
       <div class="shop-content-form-submit">
-        <styled-button
+        <app-styled-button
           (click)="submitForm()"
           [text]="'Go to payment methods'"
-        ></styled-button>
+        ></app-styled-button>
       </div>
       }
     </div>
@@ -93,10 +93,10 @@
       @if(cart && cart.products && cart.products.length > 0) {
       <div class="shop-summary-order">
         @for(cartProduct of cart.products; track cartProduct.productId) {
-        <product-summary-checkout
+        <app-product-summary-checkout
           [cartProduct]="cartProduct"
           [products]="products"
-        ></product-summary-checkout>
+        ></app-product-summary-checkout>
         }
       </div>
       }

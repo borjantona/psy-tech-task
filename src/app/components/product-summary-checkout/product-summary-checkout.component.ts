@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { TitleCasePipe } from '@angular/common';
 
 @Component({
-  selector: 'product-summary-checkout',
+  selector: 'app-product-summary-checkout',
   templateUrl: 'product-summary-checkout.component.html',
   styleUrls: ['product-summary-checkout.component.scss'],
   imports: [TitleCasePipe],

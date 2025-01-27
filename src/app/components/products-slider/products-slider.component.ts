@@ -14,7 +14,7 @@ import { IonIcon } from '@ionic/angular/standalone';
 import _ from 'lodash';
 
 @Component({
-  selector: 'products-slider',
+  selector: 'app-products-slider',
   templateUrl: 'products-slider.component.html',
   styleUrls: ['products-slider.component.scss'],
   imports: [ProductCardComponent, TitleCasePipe, IonIcon, NgClass],

@@ -4,7 +4,7 @@
     <h1 class="category-title">{{category | titlecase }}</h1>
     <div class="category-items">
       @for(product of products; track product.id) {
-      <product-card [product]="product"></product-card>
+      <app-product-card [product]="product"></app-product-card>
       }
     </div>
   </main>

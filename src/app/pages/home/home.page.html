@@ -4,10 +4,10 @@
       @if(products.length > 0) { 
 		@for(category of categories; track category) {
 			<div class="home-main-category">
-				<products-slider
+				<app-products-slider
 				[products]="products"
 				[category]="category"
-				></products-slider>
+				></app-products-slider>
 			</div>
 			}
 		}

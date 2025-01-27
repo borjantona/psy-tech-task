@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 import { NgClass } from '@angular/common';
 import {
   Input,
@@ -13,7 +12,7 @@ import {
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'styled-input',
+  selector: 'app-styled-input',
   templateUrl: './styled-input.component.html',
   styleUrls: ['./styled-input.component.scss'],
   providers: [],
@@ -23,7 +22,7 @@ export class StyledInputComponent implements OnChanges {
   @Input() required = false;
   @Input() validateInput = true;
   @Input() name: string;
-  @Input('value') val: string;
+  @Input() value: string;
 
   @Input() type = 'text';
   @Input() label: string;
@@ -59,7 +58,7 @@ export class StyledInputComponent implements OnChanges {
 
   public onInputChange($event?: any) {
     if ($event) {
-      this.val = $event.target.value;
+      this.value = $event.target.value;
       this.validateFormat();
       this.valueChanged.emit($event);
     }
@@ -73,10 +72,10 @@ export class StyledInputComponent implements OnChanges {
   validateFormat() {
     if (this.required) {
       this.msg =
-        this.val !== '' && this.val != null ? '' : 'This field is required';
-      this.status = this.val !== '' && this.val != null ? '' : 'error';
-      this.valid = this.val !== '' && this.val != null ? true : false;
-      this.checked = this.val !== '' && this.val != null ? false : true;
+        this.value !== '' && this.value != null ? '' : 'This field is required';
+      this.status = this.value !== '' && this.value != null ? '' : 'error';
+      this.valid = this.value !== '' && this.value != null ? true : false;
+      this.checked = this.value !== '' && this.value != null ? false : true;
     } else {
       this.valid = true;
     }
@@ -84,7 +83,7 @@ export class StyledInputComponent implements OnChanges {
       if (this.type === 'number') {
         this.checked = true;
         const regexMail: RegExp = REGEX.NUMBER;
-        this.valid = regexMail.test(this.val);
+        this.valid = regexMail.test(this.value);
         if (this.valid) {
           this.msg = 'This field is valid';
           this.status = 'valid';
@@ -95,7 +94,7 @@ export class StyledInputComponent implements OnChanges {
       } else if (this.type === 'number_with_decimals') {
         this.checked = true;
         const regexMail: RegExp = REGEX.NUMBER_WITH_DECIMALS;
-        this.valid = regexMail.test(this.val);
+        this.valid = regexMail.test(this.value);
         if (this.valid) {
           this.msg = 'This field is valid';
           this.status = 'valid';
@@ -106,7 +105,7 @@ export class StyledInputComponent implements OnChanges {
       } else if (this.type === 'email') {
         this.checked = true;
         const regexMail: RegExp = REGEX.MAIL;
-        this.valid = regexMail.test(this.val);
+        this.valid = regexMail.test(this.value);
         if (this.valid) {
           this.msg = 'Email is valid';
           this.status = 'valid';
@@ -117,7 +116,7 @@ export class StyledInputComponent implements OnChanges {
       } else if (this.type === 'phone') {
         this.checked = true;
         const regexPhone: RegExp = REGEX.PHONE;
-        this.valid = regexPhone.test(this.val);
+        this.valid = regexPhone.test(this.value);
         if (this.valid) {
           this.msg = 'Phone is valid';
           this.status = 'valid';
@@ -128,7 +127,7 @@ export class StyledInputComponent implements OnChanges {
       } else if (this.isPassword && this.validateInput) {
         this.checked = true;
         const regexPassword: RegExp = REGEX.PASSWORD;
-        this.valid = regexPassword.test(this.val);
+        this.valid = regexPassword.test(this.value);
         if (this.valid) {
           this.msg = 'Password is valid';
           this.status = 'valid';
@@ -139,7 +138,7 @@ export class StyledInputComponent implements OnChanges {
       } else if (this.type === 'zipCode') {
         this.checked = true;
         const regexZipCode: RegExp = REGEX.ZIP_CODE;
-        this.valid = regexZipCode.test(this.val);
+        this.valid = regexZipCode.test(this.value);
         if (this.valid) {
           this.msg = 'Zip code is valid';
           this.status = 'valid';
