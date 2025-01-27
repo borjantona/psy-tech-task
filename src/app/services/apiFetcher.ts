@@ -8,78 +8,127 @@ import { Cart, CartProduct } from '../interfaces/cart';
 export class ApiFetcherService {
   constructor() {}
 
-  // ADD TRY CATCH TO ALL FETCHES
   async getAllProducts(): Promise<Product[]> {
-    const products = await fetch(APIS.URL_BASE + APIS.PRODUCTS);
-    return await products.json();
+    try {
+      const products = await fetch(APIS.URL_BASE + APIS.PRODUCTS);
+      return await products.json();
+    } catch (e) {
+      console.log(e);
+      throw new Error('API Error');
+    }
   }
 
   async getProduct(id: number): Promise<Product> {
-    const product = await fetch(APIS.URL_BASE + APIS.PRODUCT + id);
-    return await product.json();
+    try {
+      const product = await fetch(APIS.URL_BASE + APIS.PRODUCT + id);
+      return await product.json();
+    } catch (e) {
+      console.log(e);
+      throw new Error('API Error');
+    }
   }
 
   async getCategories(): Promise<Category[]> {
-    const categories = await fetch(APIS.URL_BASE + APIS.CATEGORIES);
-    return await categories.json();
+    try {
+      const categories = await fetch(APIS.URL_BASE + APIS.CATEGORIES);
+      return await categories.json();
+    } catch (e) {
+      console.log(e);
+      throw new Error('API Error');
+    }
   }
 
   async getCategory(category: string): Promise<Product[]> {
-	if (category === 'men' || category === 'women') {
-		category = category + "'s clothing";
-	}
-    const categories = await fetch(APIS.URL_BASE + APIS.CATEGORY + category);
-    return await categories.json();
+    try {
+      const categories = await fetch(APIS.URL_BASE + APIS.CATEGORY + category);
+      return await categories.json();
+    } catch (e) {
+      console.log(e);
+      throw new Error('API Error');
+    }
   }
 
   async getCart(id: number): Promise<Cart> {
-    const categories = await fetch(APIS.URL_BASE + APIS.CART + id);
-    return await categories.json();
+    try {
+      const categories = await fetch(APIS.URL_BASE + APIS.CART + id);
+      return await categories.json();
+    } catch (e) {
+      console.log(e);
+      throw new Error('API Error');
+    }
   }
 
   async getUserCarts(id: number): Promise<Cart[]> {
-    const categories = await fetch(APIS.URL_BASE + APIS.USER_CART + id);
-    return await categories.json();
+    try {
+      const categories = await fetch(APIS.URL_BASE + APIS.USER_CART + id);
+      return await categories.json();
+    } catch (e) {
+      console.log(e);
+      throw new Error('API Error');
+    }
   }
 
   async addNewCart(cart: Cart): Promise<Response> {
-    const response = await fetch(APIS.URL_BASE + APIS.ADD_CART, {
-      method: 'POST',
-      body: JSON.stringify(cart),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    return await response.json();
+    try {
+      const response = await fetch(APIS.URL_BASE + APIS.ADD_CART, {
+        method: 'POST',
+        body: JSON.stringify(cart),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      return await response.json();
+    } catch (e) {
+      console.log(e);
+      throw new Error('API Error');
+    }
   }
 
   async createCart(cart: Cart): Promise<Cart> {
-    const response = await fetch(APIS.URL_BASE + APIS.ADD_CART, {
-      method: 'POST',
-      body: JSON.stringify(cart),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    return await response.json();
+    try {
+      const response = await fetch(APIS.URL_BASE + APIS.ADD_CART, {
+        method: 'POST',
+        body: JSON.stringify(cart),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      return await response.json();
+    } catch (e) {
+      console.log(e);
+      throw new Error('API Error');
+    }
   }
 
-  async updateProductInCart(id: number, cartSlice: {userId: number, date: string, products: CartProduct[]}): Promise<Response> {
-    const response = await fetch(APIS.URL_BASE + APIS.UPDATE_PRODUCT + id, {
-      method: 'PUT',
-      body: JSON.stringify(cartSlice),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    return await response.json();
+  async updateProductInCart(
+    id: number,
+    cartSlice: { userId: number; date: string; products: CartProduct[] }
+  ): Promise<Response> {
+    try {
+      const response = await fetch(APIS.URL_BASE + APIS.UPDATE_PRODUCT + id, {
+        method: 'PUT',
+        body: JSON.stringify(cartSlice),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      return await response.json();
+    } catch (e) {
+      console.log(e);
+      throw new Error('API Error');
+    }
   }
 
   async deleteCart(id: number): Promise<Response> {
-    const response = await fetch(APIS.URL_BASE + APIS.DELETE_CART + id, {
-      method: 'DELETE',
-    });
-    return await response.json();
+    try {
+      const response = await fetch(APIS.URL_BASE + APIS.DELETE_CART + id, {
+        method: 'DELETE',
+      });
+      return await response.json();
+    } catch (e) {
+      console.log(e);
+      throw new Error('API Error');
+    }
   }
 }
 
