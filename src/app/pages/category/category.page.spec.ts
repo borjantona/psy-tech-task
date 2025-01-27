@@ -62,7 +62,7 @@ describe('CategoryPage', () => {
     component.ngOnInit();
     fixture.detectChanges();
 
-    const productCards = fixture.nativeElement.querySelectorAll('product-card');
+    const productCards = fixture.nativeElement.querySelectorAll('app-product-card');
     expect(productCards.length).toBe(1);
   });
 

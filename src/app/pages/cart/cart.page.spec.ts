@@ -82,22 +82,8 @@ describe('CartPage', () => {
 
   it('should display the cart products in the template', () => {
     const compiled = fixture.nativeElement;
-    const productElements = compiled.querySelectorAll('product-checkout-card');
+    const productElements = compiled.querySelectorAll('app-product-checkout-card');
     expect(productElements.length).toBe(mockCart.products.length);
   });
 
-  /*it('should display the favourites in the template', () => {
-	const fixture = TestBed.createComponent(CartPage);
-	const component = fixture.componentInstance;
-  
-	// Simular favoritos
-	component.favourites = [
-		{ id: 1, title: 'Product 1', description: 'Description 1', price: 10, category: Category.ELECTRONICS, image: '', rating: { rate: 4.5, count: 10 } },
-		{ id: 2, title: 'Product 2', description: 'Description 2', price: 20, category: Category.ELECTRONICS, image: '', rating: { rate: 4.0, count: 5 } },
-	];
-	fixture.detectChanges();
-  
-	const favouriteElements = fixture.nativeElement.querySelectorAll('.cart-favourites-content product-card');
-	expect(favouriteElements.length).toBe(2);
-  });*/
 });

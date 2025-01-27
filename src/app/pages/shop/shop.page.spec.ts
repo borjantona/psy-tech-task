@@ -98,7 +98,7 @@ describe('ShopPage', () => {
   it('should display the cart products in the template', () => {
     const compiled = fixture.nativeElement;
     const productElements = compiled.querySelectorAll(
-      'product-summary-checkout'
+      'app-product-summary-checkout'
     );
     expect(productElements.length).toBe(mockCart.products.length);
   });
