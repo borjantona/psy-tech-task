@@ -15,7 +15,6 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-styled-input',
   templateUrl: './styled-input.component.html',
   styleUrls: ['./styled-input.component.scss'],
-  providers: [],
   imports: [FormsModule, NgClass],
 })
 export class StyledInputComponent implements OnChanges {
@@ -23,7 +22,6 @@ export class StyledInputComponent implements OnChanges {
   @Input() validateInput = true;
   @Input() name: string;
   @Input() value: string;
-
   @Input() type = 'text';
   @Input() label: string;
   @Input() showLabel = true;
@@ -33,7 +31,6 @@ export class StyledInputComponent implements OnChanges {
   @Input() disabled = false;
   @Input() autocomplete = true;
   @Input() placeholder = '';
-
   @Input() showPasswordIcon: string;
   @Input() hidePasswordIcon: string;
   @Input() submitted = false;

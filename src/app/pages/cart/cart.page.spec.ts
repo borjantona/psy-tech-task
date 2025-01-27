@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { StyledButtonComponent } from 'src/app/components/elements/styled-button/styled-button.component';
 import { ProductCheckoutCardComponent } from 'src/app/components/product-checkout-card/product-checkout-card.component';
-
 import { ActivatedRoute } from '@angular/router';
 import {
   mockActivatedRoute,

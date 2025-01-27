@@ -53,10 +53,13 @@
       @for (category of categories; track category) {
       <ion-item>
         <ion-label
-		class="header-nav-menu-categories-category"
-          [ngClass]="(url | decodeUri) === '/category/' + category ? 'selected' : ''"
-		  (click)="closeSideMenu()"
-          [routerLink]="['/category/' + category]">
+          class="header-nav-menu-categories-category"
+          [ngClass]="
+            (url | decodeUri) === '/category/' + category ? 'selected' : ''
+          "
+          (click)="closeSideMenu()"
+          [routerLink]="['/category/' + category]"
+        >
           <h2>{{ category | titlecase }}</h2>
         </ion-label>
       </ion-item>

@@ -27,19 +27,23 @@ export class ProductPage implements OnInit {
   constructor(private route: ActivatedRoute, private store: Store<IAppState>) {}
 
   ngOnInit(): void {
-	this.productId = +this.route.snapshot.params['id'];
+    this.productId = +this.route.snapshot.params['id'];
     this.products$ = this.store.select(selectProductsStore);
     this.products$.subscribe((productStore) => {
-      this.product = productStore.products.find((prod) => prod.id === this.productId)!;
-	  this.isFavourite =
-	  productStore.favourites.findIndex((prod) => prod.id === this.product.id) !== -1;
+      this.product = productStore.products.find(
+        (prod) => prod.id === this.productId
+      )!;
+      this.isFavourite =
+        productStore.favourites.findIndex(
+          (prod) => prod.id === this.product.id
+        ) !== -1;
     });
   }
-  
+
   addToCart() {
     this.store.dispatch(addProduct({ product: this.product }));
   }
   likeProduct() {
-	  this.store.dispatch(addRemoveFavourite({ productId: this.product.id }));
-	}
+    this.store.dispatch(addRemoveFavourite({ productId: this.product.id }));
+  }
 }

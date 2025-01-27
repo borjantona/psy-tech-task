@@ -73,7 +73,4 @@ export class ProductsSliderComponent
     });
 	this.init = true;
   }
-
-  prevSlide() {}
-  nextSlide() {}
 }

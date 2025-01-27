@@ -3,8 +3,6 @@ import { ProductPage } from './product.page';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
-import { Category, Product } from 'src/app/interfaces/product';
-import { ProductStore } from 'src/app/store/app.state';
 import { addProduct } from 'src/app/store/cart/cart.actions';
 import { addRemoveFavourite } from 'src/app/store/products/products.actions';
 import { selectProductsStore } from 'src/app/store/products/products.selectors';

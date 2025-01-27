@@ -11,13 +11,20 @@ import { Product } from 'src/app/interfaces/product';
 import { IAppState } from 'src/app/store/app.state';
 import { selectCart } from 'src/app/store/cart/cart.selectors';
 import { selectProducts } from 'src/app/store/products/products.selectors';
-import { StyledButtonComponent } from "../../components/elements/styled-button/styled-button.component";
+import { StyledButtonComponent } from '../../components/elements/styled-button/styled-button.component';
 
 @Component({
   selector: 'app-shop',
   templateUrl: 'shop.page.html',
   styleUrls: ['shop.page.scss'],
-  imports: [IonContent, DecimalPipe, ProductSummaryCheckoutComponent, FormsModule, StyledInputComponent, StyledButtonComponent],
+  imports: [
+    IonContent,
+    DecimalPipe,
+    ProductSummaryCheckoutComponent,
+    FormsModule,
+    StyledInputComponent,
+    StyledButtonComponent,
+  ],
 })
 export class ShopPage implements OnInit {
   cart$: Observable<Cart>;
@@ -27,24 +34,24 @@ export class ShopPage implements OnInit {
   products: Product[] = [];
   arrival: string;
   formDeliveryData: {
-	name: string,
-	lastName: string,
-	address: string,
-	zipCode: string,
-	city: string,
-	country: string,
-	email: string,
-	phone: string
+    name: string;
+    lastName: string;
+    address: string;
+    zipCode: string;
+    city: string;
+    country: string;
+    email: string;
+    phone: string;
   } = {
-	name: '', 
-	lastName: '',
-	address: '',
-	zipCode: '',
-	city: '',
-	country: '',
-	email: '',
-	phone: ''
-  }
+    name: '',
+    lastName: '',
+    address: '',
+    zipCode: '',
+    city: '',
+    country: '',
+    email: '',
+    phone: '',
+  };
   formSubmitted = false;
 
   constructor(private store: Store<IAppState>) {}
@@ -61,9 +68,12 @@ export class ShopPage implements OnInit {
       this.updatePrice();
     });
     let arrivalDate = new Date();
-    this.arrival = `Arrives before ${arrivalDate.getDate()} ${arrivalDate.toLocaleString('en', {
-      month: 'long',
-    })}`;
+    this.arrival = `Arrives before ${arrivalDate.getDate()} ${arrivalDate.toLocaleString(
+      'en',
+      {
+        month: 'long',
+      }
+    )}`;
   }
 
   updatePrice() {
@@ -77,6 +87,6 @@ export class ShopPage implements OnInit {
   }
 
   submitForm() {
-	this.formSubmitted = true;
+    this.formSubmitted = true;
   }
 }

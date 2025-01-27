@@ -7,7 +7,6 @@ import { IonButton } from '@ionic/angular/standalone';
 	selector: 'app-styled-button',
 	templateUrl: './styled-button.component.html',
 	styleUrls: ['./styled-button.component.scss'],
-	providers: [],
 	imports: [IonButton, RouterModule]
 })
 export class StyledButtonComponent {

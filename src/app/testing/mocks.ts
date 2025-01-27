@@ -78,15 +78,17 @@ export const mockProductsStore: ProductStore = {
     },
   ],
   categories: [Category.ELECTRONICS, Category.JEWELERY],
-  favourites: [{
-    id: 1,
-    title: 'Product 1',
-    description: 'Description 1',
-    price: 10,
-    category: Category.ELECTRONICS,
-    image: '',
-    rating: { rate: 4.5, count: 10 },
-  }],
+  favourites: [
+    {
+      id: 1,
+      title: 'Product 1',
+      description: 'Description 1',
+      price: 10,
+      category: Category.ELECTRONICS,
+      image: '',
+      rating: { rate: 4.5, count: 10 },
+    },
+  ],
 };
 
 export const mockProduct: Product = {
@@ -100,26 +102,26 @@ export const mockProduct: Product = {
 };
 
 export const mockProductsStoreWithMoreCategories: ProductStore = {
-	products: [
-	  {
-		id: 1,
-		title: 'Product 1',
-		description: 'Description 1',
-		price: 10,
-		category: Category.ELECTRONICS,
-		image: '',
-		rating: { rate: 4.5, count: 10 },
-	  },
-	  {
-		id: 2,
-		title: 'Product 2',
-		description: 'Description 2',
-		price: 20,
-		category: Category.ELECTRONICS,
-		image: '',
-		rating: { rate: 4.0, count: 5 },
-	  },
-	],
-	categories: [Category.ELECTRONICS, Category.JEWELERY, Category.MEN],
-	favourites: [],
-  };
+  products: [
+    {
+      id: 1,
+      title: 'Product 1',
+      description: 'Description 1',
+      price: 10,
+      category: Category.ELECTRONICS,
+      image: '',
+      rating: { rate: 4.5, count: 10 },
+    },
+    {
+      id: 2,
+      title: 'Product 2',
+      description: 'Description 2',
+      price: 20,
+      category: Category.ELECTRONICS,
+      image: '',
+      rating: { rate: 4.0, count: 5 },
+    },
+  ],
+  categories: [Category.ELECTRONICS, Category.JEWELERY, Category.MEN],
+  favourites: [],
+};
