@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 import { ProductStore } from 'src/app/store/app.state';
 import { IonicModule } from '@ionic/angular';
 import { Category } from 'src/app/interfaces/product';
-import { mockProductsStore } from 'src/app/testing/mocks';
+import { mockProductsStore, mockProductsStoreWithMoreCategories } from 'src/app/testing/mocks';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -42,35 +42,12 @@ describe('HomePage', () => {
 
     // Comprobar que los sliders de productos se renderizan
     const sliderElements =
-      fixture.nativeElement.querySelectorAll('products-slider');
+      fixture.nativeElement.querySelectorAll('app-products-slider');
     expect(sliderElements.length).toBe(2); // 2 categorías -> 2 sliders
   });
 
   it('should display one slider for each category', () => {
-    const mockProductsStoreWithMoreCategories: ProductStore = {
-      products: [
-        {
-          id: 1,
-          title: 'Product 1',
-          description: 'Description 1',
-          price: 10,
-          category: Category.ELECTRONICS,
-          image: '',
-          rating: { rate: 4.5, count: 10 },
-        },
-        {
-          id: 2,
-          title: 'Product 2',
-          description: 'Description 2',
-          price: 20,
-          category: Category.ELECTRONICS,
-          image: '',
-          rating: { rate: 4.0, count: 5 },
-        },
-      ],
-      categories: [Category.ELECTRONICS, Category.JEWELERY, Category.MEN],
-      favourites: [],
-    };
+    
 
     mockStore.select.and.returnValue(of(mockProductsStoreWithMoreCategories));
 
@@ -80,7 +57,7 @@ describe('HomePage', () => {
 
     // Verifica que se han renderizado sliders para todas las categorías
     const sliderElements =
-      fixture.nativeElement.querySelectorAll('products-slider');
+      fixture.nativeElement.querySelectorAll('app-products-slider');
     expect(sliderElements.length).toBe(3); // 3 categorías -> 3 sliders
   });
 });
