@@ -117,7 +117,7 @@ export class ShopPage implements OnInit {
 	}
   }
 
-  formIsValid() {
+  formIsValid(): boolean {
 	this.formDeliverySubmitted = false;
 	let isValid = true;
 	this.inputs.forEach(input => {

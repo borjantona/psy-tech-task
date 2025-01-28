@@ -80,9 +80,9 @@ describe('ShopPage', () => {
   });
 
   it('should mark the form as submitted when submitForm is called', () => {
-    expect(component.formSubmitted).toBeFalse();
+    expect(component.formDeliverySubmitted).toBeFalse();
     component.submitForm();
-    expect(component.formSubmitted).toBeTrue();
+    expect(component.formDeliverySubmitted).toBeTrue();
   });
 
   it('should render the correct total price in the template', () => {
