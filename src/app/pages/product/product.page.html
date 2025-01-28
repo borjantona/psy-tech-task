@@ -2,7 +2,7 @@
   @if(product) {
   <main class="container">
     <div class="product-image">
-      <img [src]="product.image" alt="product.name" />
+      <img [src]="product.image" [alt]="product.title" />
     </div>
     <div class="product-info">
       <h2 class="product-info-name">{{product.title}}</h2>

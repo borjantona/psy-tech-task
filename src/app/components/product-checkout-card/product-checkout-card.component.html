@@ -1,7 +1,7 @@
 <div class="product-checkout-card">
   @if(product) {
   <div class="product-checkout-card-image" (click)="goToProductDetails()">
-    <img [src]="product.image" />
+    <img [src]="product.image" [alt]="product.title"/>
   </div>
   <div class="product-checkout-card-content">
     <div class="product-checkout-card-content-title">
