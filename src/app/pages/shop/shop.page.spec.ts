@@ -65,7 +65,7 @@ describe('ShopPage', () => {
 
   it('should calculate the total price correctly', () => {
     component.updatePrice();
-    expect(component.totalPrice).toBe(40); // (10 * 2) + (20 * 1)
+    expect(component.totalPrice).toBe(40);
   });
 
   it('should set the arrival date correctly', () => {
@@ -92,7 +92,7 @@ describe('ShopPage', () => {
     );
     component.updatePrice();
     fixture.detectChanges();
-    expect(totalPriceElement.textContent).toContain('40.00€'); // Formatted value of total price
+    expect(totalPriceElement.textContent).toContain('40.00€');
   });
 
   it('should display the cart products in the template', () => {
