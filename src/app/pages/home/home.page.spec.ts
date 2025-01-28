@@ -3,12 +3,12 @@ import { HomePage } from './home.page';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { IonicModule } from '@ionic/angular';
-import { mockProductsStore, mockProductsStoreWithMoreCategories } from 'src/app/testing/mocks';
+import { mockProductsStore, mockProductsStoreWithMoreCategories, MockStore } from 'src/app/testing/mocks';
 
 describe('HomePage', () => {
   let component: HomePage;
   let fixture: ComponentFixture<HomePage>;
-  let mockStore: any;
+  let mockStore: MockStore;
 
   beforeEach(async () => {
     mockStore = {
@@ -45,7 +45,7 @@ describe('HomePage', () => {
   it('should display one slider for each category', () => {
     
 
-    mockStore.select.and.returnValue(of(mockProductsStoreWithMoreCategories));
+    mockStore?.select?.and.returnValue(of(mockProductsStoreWithMoreCategories));
 
     component.ngOnInit();
 

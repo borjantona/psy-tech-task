@@ -35,15 +35,15 @@ export class ProductCardComponent implements OnInit {
     });
   }
 
-  goToProductDetails() {
+  goToProductDetails(): void {
     this.router.navigate(['/product/' + this.product.id], {});
   }
 
-  addProductToCart() {
+  addProductToCart(): void {
     this.store.dispatch(addProduct({ product: this.product }));
   }
 
-  likeProduct() {
+  likeProduct(): void {
     this.store.dispatch(addRemoveFavourite({ productId: this.product.id }));
   }
 }

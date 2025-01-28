@@ -8,12 +8,12 @@ import { addRemoveFavourite } from 'src/app/store/products/products.actions';
 import { selectProductsStore } from 'src/app/store/products/products.selectors';
 import { IonicModule } from '@ionic/angular';
 import { TitleCasePipe } from '@angular/common';
-import { mockProduct, mockProductsStore } from 'src/app/testing/mocks';
+import { mockProduct, mockProductsStore, MockStore } from 'src/app/testing/mocks';
 
 describe('ProductPage', () => {
   let component: ProductPage;
   let fixture: ComponentFixture<ProductPage>;
-  let mockStore: any;
+  let mockStore: MockStore;
 
   beforeEach(async () => {
     mockStore = {

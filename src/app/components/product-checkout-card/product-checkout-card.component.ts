@@ -46,20 +46,20 @@ export class ProductCheckoutCardComponent implements OnInit {
     });
   }
 
-  goToProductDetails() {
+  goToProductDetails(): void {
     this.router.navigate(['/product/' + this.product.id], {});
   }
 
-  removeProduct() {
+  removeProduct(): void {
     this.store.dispatch(removeAllProducts({ productId: this.product.id }));
   }
-  addQuantity() {
+  addQuantity(): void {
     this.store.dispatch(addProduct({ product: this.product }));
   }
-  decreaseQuantity() {
+  decreaseQuantity(): void {
     this.store.dispatch(removeProduct({ productId: this.product.id }));
   }
-  likeProduct() {
+  likeProduct(): void {
     this.store.dispatch(addRemoveFavourite({ productId: this.product.id }));
   }
 }

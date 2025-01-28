@@ -35,7 +35,7 @@ export class StyledInputComponent implements OnChanges {
   @Input() hidePasswordIcon: string;
   @Input() submitted = false;
 
-  @Output() valueChanged: EventEmitter<any> = new EventEmitter();
+  @Output() valueChanged: EventEmitter<Event> = new EventEmitter();
 
   @ViewChild('input') input: ElementRef;
 
@@ -57,8 +57,8 @@ export class StyledInputComponent implements OnChanges {
 	return this.valid;
   }
 
-  public onInputChange($event?: any) {
-    if ($event) {
+  public onInputChange($event?: Event) {
+    if ($event && $event.target instanceof HTMLInputElement) {
       this.value = $event.target.value;
       this.validateFormat();
       this.valueChanged.emit($event);

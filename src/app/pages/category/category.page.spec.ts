@@ -9,12 +9,13 @@ import { TitleCasePipe } from '@angular/common';
 import {
   mockActivatedRouteElectronics,
   mockProducts,
+  MockStore,
 } from 'src/app/testing/mocks';
 
 describe('CategoryPage', () => {
   let component: CategoryPage;
   let fixture: ComponentFixture<CategoryPage>;
-  let mockStore: any;
+  let mockStore: MockStore;
 
   beforeEach(async () => {
     mockStore = {

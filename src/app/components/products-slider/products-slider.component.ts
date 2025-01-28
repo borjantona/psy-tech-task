@@ -34,7 +34,7 @@ export class ProductsSliderComponent implements OnInit, OnChanges {
     }, 200);
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     if (changes['products']) {
       if (this.swiper) {
         this.swiper.update();
@@ -42,7 +42,7 @@ export class ProductsSliderComponent implements OnInit, OnChanges {
     }
   }
 
-  getInnerProducts() {
+  getInnerProducts(): void {
     if (this.category !== undefined) {
       this.innerProducts = this.products.filter(
         (product) => product.category === this.category

@@ -5,13 +5,21 @@ import { initCart } from './store/cart/cart.actions';
 import { getCategories, getProducts } from './store/products/products.actions';
 import { IonicModule } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { mockActivatedRoute, mockProductsStore } from './testing/mocks';
+import { Category, Product } from './interfaces/product';
+
+type Selector = 'selectProducts' | 'selectCategories';
+
+interface MockStore {
+  select: jasmine.Spy<(selector: Selector) => Observable<Product[] | Category[]>>;
+  dispatch: jasmine.Spy<(action: unknown) => void>;
+}
 
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
-  let mockStore: any;
+  let mockStore: MockStore;
 
   beforeEach(async () => {
     mockStore = {

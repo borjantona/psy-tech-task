@@ -15,12 +15,13 @@ import {
   mockActivatedRoute,
   mockCart,
   mockProducts,
+  MockStore,
 } from 'src/app/testing/mocks';
 
 describe('ShopPage', () => {
   let component: ShopPage;
   let fixture: ComponentFixture<ShopPage>;
-  let mockStore: any;
+  let mockStore: MockStore;
 
   beforeEach(async () => {
     mockStore = {

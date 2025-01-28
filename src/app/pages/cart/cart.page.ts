@@ -32,7 +32,7 @@ export class CartPage implements OnInit {
 
   constructor(private store: Store<IAppState>) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.cart$ = this.store.select(selectCart);
     this.cart$.subscribe((cart) => {
       this.cart = cart;

@@ -15,7 +15,7 @@ import { selectAlert } from './store/alerts/alerts.selectors';
   imports: [IonApp, IonRouterOutlet, HeaderComponent, IonToast],
 })
 export class AppComponent implements OnInit {
-	alert$: Observable<Alert>;
+  alert$: Observable<Alert>;
   isToastOpen = false;
   toastMsg = '';
 
@@ -23,18 +23,18 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     let userId = 1;
-	this.alert$ = this.store.select(selectAlert);
+    this.alert$ = this.store.select(selectAlert);
     localStorage.setItem('userId', userId.toString());
     this.store.dispatch(initCart({ userId }));
     this.store.dispatch(getProducts());
     this.store.dispatch(getCategories());
 
-	this.alert$.subscribe((alert) => {
-		this.isToastOpen = alert.open;
-		this.toastMsg = alert.message;
-	})
+    this.alert$.subscribe((alert) => {
+      this.isToastOpen = alert.open;
+      this.toastMsg = alert.message;
+    });
   }
-  openToast(isOpen: boolean) {
+  openToast(isOpen: boolean): void {
     this.isToastOpen = isOpen;
   }
 }

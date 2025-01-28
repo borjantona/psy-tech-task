@@ -39,7 +39,7 @@ export class CategoryPage implements OnInit {
     });
   }
 
-  filterProducts(event: Event) {
+  filterProducts(event: Event): void {
 	const target = event.target as HTMLIonSearchbarElement;
     this.searchString = target.value?.toLowerCase() || '';
 	if (this.searchString) {

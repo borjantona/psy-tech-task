@@ -40,10 +40,10 @@ export class ProductPage implements OnInit {
     });
   }
 
-  addToCart() {
+  addToCart(): void {
     this.store.dispatch(addProduct({ product: this.product }));
   }
-  likeProduct() {
+  likeProduct(): void {
     this.store.dispatch(addRemoveFavourite({ productId: this.product.id }));
   }
 }

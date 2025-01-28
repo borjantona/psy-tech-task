@@ -99,7 +99,7 @@ export class ShopPage implements OnInit {
     )}`;
   }
 
-  updatePrice() {
+  updatePrice(): void {
     this.totalPrice = this.cart.products.reduce((total, cartProd) => {
       const prod = this.products.find((p) => p.id === cartProd.productId);
       if (prod) {
@@ -109,7 +109,7 @@ export class ShopPage implements OnInit {
     }, 0);
   }
 
-  submitForm() {
+  submitForm(): void {
 	this.formIsValid();
 	this.formDeliverySubmitted = true;
 	if (this.formDeliveryValid) {
@@ -127,14 +127,14 @@ export class ShopPage implements OnInit {
 	return isValid;
   }
 
-  submitPaymentForm() {
+  submitPaymentForm(): void {
 	this.formPaymentSubmitted = true;
 	if (this.formIsValid()) {
 		this.store.dispatch(toastShow({message: 'Payment successfull'}));
 	}
   }
 
-  goToDeliveryOptions() {
+  goToDeliveryOptions(): void {
 	this.step = this.steps.DELIVERY;
   }
 }

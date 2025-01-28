@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Cart } from '../interfaces/cart';
 import { Category, Product } from '../interfaces/product';
 import { ProductStore } from '../store/app.state';
@@ -125,3 +126,10 @@ export const mockProductsStoreWithMoreCategories: ProductStore = {
   categories: [Category.ELECTRONICS, Category.JEWELERY, Category.MEN],
   favourites: [],
 };
+
+type Selector = 'selectProducts' | 'selectCategories' | 'selectProductsStore' | 'selectCart';
+
+export interface MockStore {
+  select?: jasmine.Spy<(selector: Selector) => Observable<Product[] | Category[] | ProductStore>>;
+  dispatch?: jasmine.Spy<(action: unknown) => void>;
+}

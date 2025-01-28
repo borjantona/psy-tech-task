@@ -14,12 +14,13 @@ import {
   mockCart,
   mockFavourites,
   mockProducts,
+  MockStore,
 } from 'src/app/testing/mocks';
 
 describe('CartPage', () => {
   let component: CartPage;
   let fixture: ComponentFixture<CartPage>;
-  let mockStore: any;
+  let mockStore: MockStore;
 
   beforeEach(async () => {
     mockStore = {
