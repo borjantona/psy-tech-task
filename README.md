@@ -80,6 +80,12 @@ All the screenshots taken in large (1920px wide), medium (1300px wide) and small
 ![Cart small](https://github.com/user-attachments/assets/8e8a3559-df5e-41e2-8bf6-b051d44f2264)
 
 ### Checkout
-![Checkout large](https://github.com/user-attachments/assets/cca6740b-5c1e-4be7-9fcd-392a422d0f20)
-![Checkout medium](https://github.com/user-attachments/assets/f8e5608b-8f80-4895-bc22-0cc4633d25c6)
-![Checkout small](https://github.com/user-attachments/assets/d16eab1c-c540-44d3-ac35-831ece662231)
+![Checkout Delivery large](https://github.com/user-attachments/assets/94ebce98-67b7-45af-9b8e-b97c0966e2e6)
+![Checkout Delivery medium](https://github.com/user-attachments/assets/53772384-151b-4713-ab94-8ccb4584f85f)
+![Checkout Delivery small](https://github.com/user-attachments/assets/28fb296b-deeb-4ef5-becf-84646c08f379)
+
+![Checkout Payment large](https://github.com/user-attachments/assets/cdff67c1-ec2b-4c16-ad66-1a15e3ce45c2)
+![Checkout Payment medium](https://github.com/user-attachments/assets/d4e27393-5308-4540-9ff8-dc98e64403a0)
+![Checkout Payment small](https://github.com/user-attachments/assets/e17cfe28-7dde-495d-8584-1ca6a804530e)
+
+
