@@ -1,13 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
 
 import { Product } from 'src/app/interfaces/product';
-import { IAppState } from 'src/app/store/app.state';
 import { CartProduct } from 'src/app/interfaces/cart';
-import {
-  removeAllProducts,
-  removeProduct,
-} from 'src/app/store/cart/cart.actions';
 import { Router } from '@angular/router';
 import { TitleCasePipe } from '@angular/common';
 
@@ -22,7 +16,7 @@ export class ProductSummaryCheckoutComponent implements OnInit {
   @Input() products: Product[];
   product: Product;
 
-  constructor(private store: Store<IAppState>, private router: Router) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.product = this.products.find(
