@@ -37,7 +37,6 @@ export class ProductsSliderComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes['products']) {
       if (this.swiper) {
-        console.log('hola');
         this.swiper.update();
       }
     }
