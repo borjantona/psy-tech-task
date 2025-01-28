@@ -15,6 +15,7 @@ import { Store } from '@ngrx/store';
 import { selectCart } from './cart.selectors';
 import { ApiFetcherService } from 'src/app/services/apiFetcher';
 import { CartProduct } from 'src/app/interfaces/cart';
+import { toastShow } from '../alerts/alerts.actions';
 
 @Injectable()
 export class CartEffects {
@@ -37,6 +38,7 @@ export class CartEffects {
             if (!product) {
               product = { productId: action.product.id, quantity: 1 };
             }
+			this.store.dispatch(toastShow({message: 'Product added to the cart'}));
             return this.apiFetcherService.updateProductInCart(cart.id, {
               userId: cart.userId,
               products: [product],
@@ -63,6 +65,7 @@ export class CartEffects {
             if (!product) {
               product = { productId: action.productId, quantity: 0 };
             }
+			this.store.dispatch(toastShow({message: 'Product removed from the cart'}));
             return this.apiFetcherService.updateProductInCart(cart.id, {
               userId: cart.userId,
               products: [product],
@@ -83,6 +86,7 @@ export class CartEffects {
         switchMap(([action, cart]) => {
           if (cart.id) {
             let product = { productId: action.productId, quantity: 0 };
+			this.store.dispatch(toastShow({message: 'Products removed from the cart'}));
             return this.apiFetcherService.updateProductInCart(cart.id, {
               userId: cart.userId,
               products: [product],
@@ -104,6 +108,7 @@ export class CartEffects {
           if (cart.id) {
             return this.apiFetcherService.deleteCart(cart.id);
           }
+		  this.store.dispatch(toastShow({message: 'Cart emptied'}));
           return of(null);
         })
       ),

@@ -10,6 +10,7 @@ import { provideEffects } from '@ngrx/effects';
 import { CartEffects } from './app/store/cart/cart.effects';
 import { ProductsEffects } from './app/store/products/products.effects';
 import { productsReducer } from './app/store/products/products.reducer';
+import { alertReducer } from './app/store/alerts/alerts.reducer';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -18,7 +19,8 @@ bootstrapApplication(AppComponent, {
     provideRouter(routes, withPreloading(PreloadAllModules)),
     provideStore({
         cart: cartReducer,
-		products: productsReducer
+		products: productsReducer,
+		alerts: alertReducer
     }),
     provideEffects([CartEffects, ProductsEffects])
 ]

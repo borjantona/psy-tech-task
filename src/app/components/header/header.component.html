@@ -11,9 +11,7 @@
       @for (category of categories; track category) {
       <span
         class="header-nav-categories-category"
-        [ngClass]="
-          (url | decodeUri) === '/category/' + category ? 'selected' : ''
-        "
+        [ngClass]="(url | decodeUri) === '/category/' + category ? 'selected' : ''"
         [routerLink]="['/category/' + category]"
         >{{ category | titlecase }}</span
       >

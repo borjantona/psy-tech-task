@@ -39,9 +39,8 @@
 // @import "@ionic/angular/css/palettes/dark.system.css";
 
 :root {
-	--header-height: 80px;
+  --header-height: 80px;
 }
-
 
 ion-content {
   --offset-bottom: auto !important;
@@ -54,7 +53,13 @@ ion-content {
 }
 
 ion-searchbar input {
-	--border-radius: 40px;
+  --border-radius: 40px;
+}
+
+ion-toast {
+	--max-width: 400px;
+	--border-radius: 10px;
+	--background: var(--ion-color-primary)
 }
 
 .container {
