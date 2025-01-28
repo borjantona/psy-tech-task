@@ -1,4 +1,4 @@
-<h1>Technical test Psonrie</h1>
+<h1>Technical test for a psychology company</h1>
 
 This technical test is done using Angular 19 and Ionic 7
 
