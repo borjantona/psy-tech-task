@@ -24,7 +24,7 @@ export class ProductSummaryCheckoutComponent implements OnInit {
     )!;
   }
 
-  goToProductDetails() {
+  goToProductDetails(): void {
     this.router.navigate(['/product/' + this.product.id], {});
   }
 
