@@ -1,11 +1,10 @@
-
 .home {
   &-main {
-	padding: 32px;
-	&-category {
-		margin-bottom: 16px;
-	}
-	
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    &-category {
+      margin-bottom: 16px;
+    }
   }
 }
-

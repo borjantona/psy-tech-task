@@ -53,6 +53,10 @@ ion-content {
   }
 }
 
+ion-searchbar input {
+	--border-radius: 40px;
+}
+
 .container {
   position: relative;
   left: 0;

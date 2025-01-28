@@ -1,8 +1,4 @@
-import {
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import Swiper from 'swiper';
 import { Category, Product } from 'src/app/interfaces/product';
 import { ProductCardComponent } from '../product-card/product-card.component';
@@ -19,9 +15,7 @@ import _ from 'lodash';
   styleUrls: ['products-slider.component.scss'],
   imports: [ProductCardComponent, TitleCasePipe, IonIcon, NgClass],
 })
-export class ProductsSliderComponent
-  implements OnInit 
-{
+export class ProductsSliderComponent implements OnInit {
   @Input() products: Product[] = [];
   swiper: Swiper;
   @Input() category: Category;
@@ -34,15 +28,30 @@ export class ProductsSliderComponent
   }
 
   ngOnInit(): void {
+	this.getInnerProducts();
+    setTimeout(() => {
+      this.initSwiper();
+    }, 200);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['products']) {
+      if (this.swiper) {
+        console.log('hola');
+        this.swiper.update();
+      }
+    }
+  }
+
+  getInnerProducts() {
     if (this.category !== undefined) {
       this.innerProducts = this.products.filter(
         (product) => product.category === this.category
       );
       this.categoryClean = this.category.replace(/[^a-zA-Z0-9]/g, '');
     } else {
-		this.innerProducts = _.cloneDeep(this.products);
-	}
-	setTimeout(() => {this.initSwiper();}, 200);
+      this.innerProducts = _.cloneDeep(this.products);
+    }
   }
 
   initSwiper() {
@@ -71,6 +80,6 @@ export class ProductsSliderComponent
         prevEl: '.swiper-button-prev-' + this.categoryClean,
       },
     });
-	this.init = true;
+    this.init = true;
   }
 }
