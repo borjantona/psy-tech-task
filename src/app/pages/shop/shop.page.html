@@ -91,7 +91,6 @@
         [ngClass]="(step === steps.DELIVERY) ? '' : 'invisible'"
       >
         <app-styled-button
-          [disabled]="!formDeliveryValid"
           (click)="submitForm()"
           [text]="'Go to payment methods'"
         ></app-styled-button>
