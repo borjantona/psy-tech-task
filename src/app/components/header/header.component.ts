@@ -61,15 +61,15 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.url$.subscribe((url) => {
-      this.url = url;
-    });
     this.url$ = this.router.events.pipe(
       filter((event: any) => event instanceof NavigationEnd),
       map((event: NavigationEnd) => {
         return event.url;
       })
     );
+	this.url$.subscribe((url) => {
+		this.url = url;
+	  });
     this.cart$ = this.store.select(selectCartTotal);
 
     this.categories$ = this.store.select(selectCategories);
