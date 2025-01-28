@@ -11,6 +11,8 @@ import { CartEffects } from './app/store/cart/cart.effects';
 import { ProductsEffects } from './app/store/products/products.effects';
 import { productsReducer } from './app/store/products/products.reducer';
 import { alertReducer } from './app/store/alerts/alerts.reducer';
+import { isDevMode } from '@angular/core';
+import { provideServiceWorker } from '@angular/service-worker';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -22,6 +24,9 @@ bootstrapApplication(AppComponent, {
 		products: productsReducer,
 		alerts: alertReducer
     }),
-    provideEffects([CartEffects, ProductsEffects])
+    provideEffects([CartEffects, ProductsEffects]), provideServiceWorker('ngsw-worker.js', {
+            enabled: !isDevMode(),
+            registrationStrategy: 'registerWhenStable:30000'
+          })
 ]
 });

@@ -23,6 +23,9 @@ The site structure is as follows:
 
 The design is provided with this **[figma](https://www.figma.com/community/file/1235719100191160651)** that emulates the nike store.
 
+> [!important]
+> It is developed as an Angular APP and added service workers and webmanifest to work as a PWA. The deployment is out of the scope of this project. For this purpose you can go to the **[Ionic Official Documentation](https://ionicframework.com/docs/angular/pwa)**
+
 ### Extra features
 
 - [x] **1.** Favourites: Implemented add/remove/show favourites
