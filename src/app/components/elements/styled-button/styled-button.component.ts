@@ -13,6 +13,7 @@ export class StyledButtonComponent {
 	@Input() text = '';
 	@Input() color = 'primary';
 	@Input() link: string;
+	@Input() disabled = false;
 
 	constructor() {}
 }

@@ -53,6 +53,10 @@ export class StyledInputComponent implements OnChanges {
     }
   }
 
+  public isValid(): boolean {
+	return this.valid;
+  }
+
   public onInputChange($event?: any) {
     if ($event) {
       this.value = $event.target.value;
@@ -143,6 +147,39 @@ export class StyledInputComponent implements OnChanges {
           this.msg = 'Zip code is not valid';
           this.status = 'error';
         }
+      } else if (this.type === 'cvv') {
+        this.checked = true;
+        const regexCVV: RegExp = REGEX.CVV;
+        this.valid = regexCVV.test(this.value);
+        if (this.valid) {
+          this.msg = 'CVV is valid';
+          this.status = 'valid';
+        } else {
+          this.msg = 'CVV is not valid';
+          this.status = 'error';
+        }
+      } else if (this.type === 'expirationDate') {
+        this.checked = true;
+        const regexExp: RegExp = REGEX.EXPIRATION_DATE;
+        this.valid = regexExp.test(this.value);
+        if (this.valid) {
+          this.msg = 'Expiration date is valid';
+          this.status = 'valid';
+        } else {
+          this.msg = 'Expiration date is not valid (MM/YY required)';
+          this.status = 'error';
+        }
+      } else if (this.type === 'card') {
+        this.checked = true;
+        const regexCard: RegExp = REGEX.CARD;
+        this.valid = regexCard.test(this.value);
+        if (this.valid) {
+          this.msg = 'Card number is valid';
+          this.status = 'valid';
+        } else {
+          this.msg = 'Card number is not valid';
+          this.status = 'error';
+        }
       }
     }
   }
@@ -159,4 +196,7 @@ export const REGEX = {
   ALPHANUMERIC_UNDERSCORE_SPACE: /^[a-zA-Z_\d ]*$/,
   ALPHANUMERIC_UNDERSCORE: /^[a-zA-Z0-9_]{3,30}$/,
   ZIP_CODE: /^[\d]{5}$/,
+  CVV: /^\d{3}$/,
+  EXPIRATION_DATE: /^(0[1-9]|1[0-2])\/(\d{2}|\d{4})$/,
+  CARD: /^\d{13,19}$/
 };

@@ -2,22 +2,32 @@
   <div class="container">
     <div class="shop-content">
       @if(cart && cart.products && cart.products.length > 0) {
-      <div class="shop-content-title">Delivery information</div>
-      <form class="shop-content-form">
+      <div
+        class="shop-content-title"
+        [ngClass]="(step === steps.DELIVERY) ? '' : 'invisible'"
+      >
+        Delivery information
+      </div>
+      <form
+        class="shop-content-form"
+        [ngClass]="(step === steps.DELIVERY) ? '' : 'invisible'"
+      >
         <div class="shop-content-form-row">
           <app-styled-input
             [required]="true"
             [name]="'name'"
             [value]="formDeliveryData.name"
             [placeholder]="'Name*'"
-            [submitted]="formSubmitted"
+            (valueChanged)="formIsValid()"
+            [submitted]="formDeliverySubmitted"
           ></app-styled-input>
           <app-styled-input
             [required]="true"
             [name]="'lastname'"
             [value]="formDeliveryData.lastName"
             [placeholder]="'Last Name*'"
-            [submitted]="formSubmitted"
+            (valueChanged)="formIsValid()"
+            [submitted]="formDeliverySubmitted"
           ></app-styled-input>
         </div>
         <app-styled-input
@@ -25,7 +35,8 @@
           [name]="'address'"
           [value]="formDeliveryData.address"
           [placeholder]="'Address*'"
-          [submitted]="formSubmitted"
+          (valueChanged)="formIsValid()"
+          [submitted]="formDeliverySubmitted"
         ></app-styled-input>
         <div class="shop-content-form-row">
           <app-styled-input
@@ -34,21 +45,24 @@
             [value]="formDeliveryData.zipCode"
             [placeholder]="'Zip Code*'"
             [type]="'zipCode'"
-            [submitted]="formSubmitted"
+            (valueChanged)="formIsValid()"
+            [submitted]="formDeliverySubmitted"
           ></app-styled-input>
           <app-styled-input
             [required]="true"
             [name]="'city'"
             [value]="formDeliveryData.city"
             [placeholder]="'City*'"
-            [submitted]="formSubmitted"
+            (valueChanged)="formIsValid()"
+            [submitted]="formDeliverySubmitted"
           ></app-styled-input>
           <app-styled-input
             [required]="true"
             [name]="'country'"
             [value]="formDeliveryData.country"
             [placeholder]="'Country*'"
-            [submitted]="formSubmitted"
+            (valueChanged)="formIsValid()"
+            [submitted]="formDeliverySubmitted"
           ></app-styled-input>
         </div>
         <div class="shop-content-form-row">
@@ -58,7 +72,8 @@
             [value]="formDeliveryData.email"
             [placeholder]="'E-mail*'"
             [type]="'email'"
-            [submitted]="formSubmitted"
+            (valueChanged)="formIsValid()"
+            [submitted]="formDeliverySubmitted"
           ></app-styled-input>
           <app-styled-input
             [required]="true"
@@ -66,14 +81,70 @@
             [value]="formDeliveryData.phone"
             [placeholder]="'Phone Number*'"
             [type]="'phone'"
-            [submitted]="formSubmitted"
+            (valueChanged)="formIsValid()"
+            [submitted]="formDeliverySubmitted"
+          ></app-styled-input>
+        </div>
+      </form>
+      <div
+        class="shop-content-form-submit"
+        [ngClass]="(step === steps.DELIVERY) ? '' : 'invisible'"
+      >
+        <app-styled-button
+          [disabled]="!formDeliveryValid"
+          (click)="submitForm()"
+          [text]="'Go to payment methods'"
+        ></app-styled-button>
+      </div>
+      } @if(cart && cart.products && cart.products.length > 0 && step === steps.PAYMENT) {
+      <div class="shop-content-title">Payment</div>
+      <form class="shop-content-form">
+        <div class="shop-content-form-row" >
+          <app-styled-input
+            [required]="true"
+            [name]="'card'"
+            [value]="formPaymentData.card"
+            [placeholder]="'Credit Card*'"
+			[type]="'card'"
+            [submitted]="formPaymentSubmitted"
+          ></app-styled-input>
+        </div>
+        <div class="shop-content-form-row">
+          <app-styled-input
+            [required]="true"
+            [name]="'expiration'"
+            [value]="formPaymentData.expirationDate"
+            [placeholder]="'Expiration Date*'"
+            [type]="'expirationDate'"
+            [submitted]="formPaymentSubmitted"
+          ></app-styled-input>
+          <app-styled-input
+            [required]="true"
+            [name]="'cvv'"
+            [value]="formPaymentData.cvv"
+            [placeholder]="'CVV*'"
+            [type]="'cvv'"
+            [submitted]="formPaymentSubmitted"
+          ></app-styled-input>
+        </div>
+        <div class="shop-content-form-row">
+          <app-styled-input
+            [required]="true"
+            [name]="'name'"
+            [value]="formPaymentData.name"
+            [placeholder]="'Name*'"
+            [submitted]="formPaymentSubmitted"
           ></app-styled-input>
         </div>
       </form>
       <div class="shop-content-form-submit">
         <app-styled-button
-          (click)="submitForm()"
-          [text]="'Go to payment methods'"
+          (click)="goToDeliveryOptions()"
+          [text]="'Go to delivery options'"
+        ></app-styled-button>
+        <app-styled-button
+          (click)="submitPaymentForm()"
+          [text]="'Pay'"
         ></app-styled-button>
       </div>
       }
