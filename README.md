@@ -31,6 +31,8 @@ The design is provided with this **[figma](https://www.figma.com/community/file/
 - [x] **1.** Favourites: Implemented add/remove/show favourites
 - [x] **2.** Responsiveness: All the views are made for small, medium and large screens
 - [x] **3.** CI: Added a git workflow action to check tests, build and lint.
+- [x] **4.** Searchbox: Added a searchbox in category page.
+- [x] **5.** Toast: Added toast messaging across the app.
 
 ### Project structure
 
