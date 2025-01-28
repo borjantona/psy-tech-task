@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import Swiper from 'swiper';
 import { Category, Product } from 'src/app/interfaces/product';
 import { ProductCardComponent } from '../product-card/product-card.component';
@@ -15,7 +15,7 @@ import _ from 'lodash';
   styleUrls: ['products-slider.component.scss'],
   imports: [ProductCardComponent, TitleCasePipe, IonIcon, NgClass],
 })
-export class ProductsSliderComponent implements OnInit {
+export class ProductsSliderComponent implements OnInit, OnChanges {
   @Input() products: Product[] = [];
   swiper: Swiper;
   @Input() category: Category;
