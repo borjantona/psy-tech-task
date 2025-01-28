@@ -54,6 +54,13 @@ The design is provided with this **[figma](https://www.figma.com/community/file/
 - **[Angular](https://angular.dev/)**
 - **[Ionic](https://ionicframework.com/)**
 
+### Lighthouse
+
+![Lighthouse analytics](https://github.com/user-attachments/assets/f6403d0c-4a94-4ffa-b47f-38b8559ef784)
+
+The performance states that I'm running in dev mode. It lacks CSS and JS minified files. It has a value of 58 but it is not a truthy value.
+
+
 ### Screenshots
 
 All the screenshots taken in large (1920px wide), medium (1300px wide) and small (500px wide) screens.
