@@ -105,7 +105,7 @@ export class ApiFetcherService {
     cartSlice: { userId: number; date: string; products: CartProduct[] }
   ): Promise<Response> {
     try {
-      const response = await fetch(APIS.URL_BASE + APIS.UPDATE_PRODUCT + id, {
+      const response = await fetch(APIS.URL_BASE + APIS.CART + id, {
         method: 'PUT',
         body: JSON.stringify(cartSlice),
         headers: {
@@ -121,7 +121,7 @@ export class ApiFetcherService {
 
   async deleteCart(id: number): Promise<Response> {
     try {
-      const response = await fetch(APIS.URL_BASE + APIS.DELETE_CART + id, {
+      const response = await fetch(APIS.URL_BASE + APIS.CART + id, {
         method: 'DELETE',
       });
       return await response.json();
@@ -140,7 +140,5 @@ export const enum APIS {
   PRODUCT = 'products/',
   CART = 'carts/',
   USER_CART = 'carts/user/',
-  ADD_CART = 'carts',
-  UPDATE_PRODUCT = 'carts/',
-  DELETE_CART = 'carts/',
+  ADD_CART = 'carts'
 }

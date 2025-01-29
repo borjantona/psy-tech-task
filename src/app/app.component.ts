@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<IAppState>) {}
 
   ngOnInit(): void {
-    let userId = 1;
+    const userId = 1;
     this.alert$ = this.store.select(selectAlert);
     localStorage.setItem('userId', userId.toString());
     this.store.dispatch(initCart({ userId }));

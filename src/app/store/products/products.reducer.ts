@@ -12,17 +12,17 @@ const initialState: ProductStore = {
 export const productsReducer = createReducer(
   initialState,
   on(loadProducts, (state, action) => {
-	let _state = _.cloneDeep(state)
+	const _state = _.cloneDeep(state)
 	_state.products = action.products;
 	return _state;
   }),
   on(loadCategories, (state, action) => {
-	let _state = _.cloneDeep(state)
+	const _state = _.cloneDeep(state)
 	_state.categories = action.categories;
 	return _state;
   }),
   on(addRemoveFavourite, (state, action) => {
-	let _state = _.cloneDeep(state);
+	const _state = _.cloneDeep(state);
 	const favIndex = _state.favourites.findIndex(prod => prod.id === action.productId);
 	if (favIndex === -1) {
 		const prod = _state.products.find(prod => prod.id === action.productId)!;

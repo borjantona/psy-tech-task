@@ -13,7 +13,7 @@ const initialState: Cart = {
 export const cartReducer = createReducer(
   initialState,
   on(addProduct, (state, action) => {
-	let _state = _.cloneDeep(state);
+	const _state = _.cloneDeep(state);
 	const productIndex = _state.products.findIndex((product) => product.productId === action.product.id);
 	if (productIndex !== -1) {
 		_state.products[productIndex].quantity++;
@@ -23,7 +23,7 @@ export const cartReducer = createReducer(
     return _state;
   }),
   on(removeProduct, (state, action) => {
-	let _state = _.cloneDeep(state)
+	const _state = _.cloneDeep(state)
 	const productIndex = _state.products.findIndex((product) => product.productId === action.productId);
 	
 	if (productIndex === -1) {
@@ -38,7 +38,7 @@ export const cartReducer = createReducer(
     return _state;
   }),
   on(removeAllProducts, (state, action) => {
-	let _state = _.cloneDeep(state)
+	const _state = _.cloneDeep(state)
 	const productIndex = _state.products.findIndex((product) => product.productId === action.productId);
 	
 	if (productIndex === -1) {
@@ -49,7 +49,7 @@ export const cartReducer = createReducer(
     return _state;
   }),
   on(cleanCart, (state) => {
-	let _state = _.cloneDeep(state)
+	const _state = _.cloneDeep(state)
 	_state.products = [];
 	return _state;
   }),

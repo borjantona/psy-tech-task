@@ -23,6 +23,7 @@ import { IAppState } from 'src/app/store/app.state';
 import { selectCartTotal } from 'src/app/store/cart/cart.selectors';
 import { selectCategories } from 'src/app/store/products/products.selectors';
 import { DecodeUriPipe } from 'src/app/pipes/decode-uri.pipe';
+import { Event } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -62,7 +63,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.url$ = this.router.events.pipe(
-      filter((event: any) => event instanceof NavigationEnd),
+      filter((event: Event) => event instanceof NavigationEnd),
       map((event: NavigationEnd) => {
         return event.url;
       })

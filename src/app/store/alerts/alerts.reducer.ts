@@ -11,13 +11,13 @@ const initialState: Alert = {
 export const alertReducer = createReducer(
   initialState,
   on(toastShow, (state, action) => {
-	let _state = _.cloneDeep(state);
+	const _state = _.cloneDeep(state);
 	_state.open = true;
 	_state.message = action.message;
 	return _state;
   }),
-  on(toastClose, (state, action) => {
-	let _state = _.cloneDeep(state)
+  on(toastClose, (state) => {
+	const _state = _.cloneDeep(state)
 	_state.open = false;
 	_state.message = '';
 	return _state;

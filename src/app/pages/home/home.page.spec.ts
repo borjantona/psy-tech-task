@@ -12,7 +12,7 @@ describe('HomePage', () => {
 
   beforeEach(async () => {
     mockStore = {
-      select: jasmine.createSpy().and.callFake((selector) => {
+      select: jasmine.createSpy().and.callFake(() => {
         return of(mockProductsStore);
       }),
     };

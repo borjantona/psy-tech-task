@@ -85,7 +85,7 @@ export class CartEffects {
         withLatestFrom(this.store.select(selectCart)),
         switchMap(([action, cart]) => {
           if (cart.id) {
-            let product = { productId: action.productId, quantity: 0 };
+            const product = { productId: action.productId, quantity: 0 };
 			this.store.dispatch(toastShow({message: 'Products removed from the cart'}));
             return this.apiFetcherService.updateProductInCart(cart.id, {
               userId: cart.userId,
@@ -104,7 +104,7 @@ export class CartEffects {
       this.actions$.pipe(
         ofType(cleanCart),
         withLatestFrom(this.store.select(selectCart)),
-        switchMap(([action, cart]) => {
+        switchMap(([, cart]) => {
           if (cart.id) {
             return this.apiFetcherService.deleteCart(cart.id);
           }

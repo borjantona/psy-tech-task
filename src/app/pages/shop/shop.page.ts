@@ -90,7 +90,7 @@ export class ShopPage implements OnInit {
       this.products = products;
       this.updatePrice();
     });
-    let arrivalDate = new Date();
+    const arrivalDate = new Date();
     this.arrival = `Arrives before ${arrivalDate.getDate()} ${arrivalDate.toLocaleString(
       'en',
       {
