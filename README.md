@@ -36,14 +36,18 @@ The design is provided with this **[figma](https://www.figma.com/community/file/
 
 ### Project structure
 
-- `src/app/components`: Components with no page entity. Product cards, sliders and styled elements.
-- `src/app/interfaces`: Interfaces to mainly support the store state
-- `src/app/pages`: Views of the app
-- `src/app/pipes`: Utilities to support angular formatting
-- `src/app/services`: Api Fetcher to retrieve data from **[FakeStoreAPI](https://fakestoreapi.com/)**
-- `src/app/store`: NgRx files (reducers, selectors, actions and effects) to manage the app state
-- `src/app/testing`: Mockups for testing
-- `src/theme`: App theming variables
+```sh
+📁 src
+├─📁 app
+│ ├─📁 components    # Components with no page entity. Product cards, sliders and styled elements.
+│ ├─📁 interfaces    # Interfaces to mainly support the store state
+│ ├─📁 pages         # Views of the app
+│ ├─📁 pipes         # Utilities to support angular formatting
+│ ├─📁 services      # Api Fetcher to retrieve data from (https://fakestoreapi.com/)
+│ ├─📁 store         # NgRx files (reducers, selectors, actions and effects) to manage the app state
+│ └─📁 testing       # Mockups for testing
+└─📁 theme           # App theming variables
+```
 
 ### Included 3rd-party libraries
 
